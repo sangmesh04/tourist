@@ -321,9 +321,17 @@ h1, h2, h3, h4, h5, h6 {
   color: #3498db;
   border: 2px solid #3498db;
 }
-#hero .btn-get-started:hover {
-  background: #3498db;
-  color: #fff;
+#hero .row input{
+  outline: none;
+  width: 80%;
+}
+#hero  .row .bi-geo-alt-fill{
+  font-size: 35px;
+  color: #2383c4;
+  margin-left:7px ;
+}
+#hero  .row .bi-geo-alt-fill:hover{
+  cursor: pointer;
 }
 #hero .animated {
   animation: up-down 2s ease-in-out infinite alternate-reverse both;

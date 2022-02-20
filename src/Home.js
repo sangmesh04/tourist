@@ -1,10 +1,10 @@
 import hero from './img/hero-img.png';
-import cli1 from './img/clients/client-1.png';
+import cli1 from './img/clients/gmaps.png';
 import cli2 from './img/clients/client-2.png';
 import cli3 from './img/clients/client-3.png';
-import cli4 from './img/clients/client-4.png';
-import cli5 from './img/clients/client-5.png';
-import cli6 from './img/clients/client-6.png';
+import cli4 from './img/clients/ola.png';
+import cli5 from './img/clients/rapidapi.png';
+import cli6 from './img/clients/firebase.png';
 import count from './img/counts-img.svg';
 import test1 from './img/testimonials/testimonials-1.jpg';
 import test2 from './img/testimonials/testimonials-2.jpg';
@@ -25,13 +25,36 @@ import team2 from './img/team/team-2.jpg';
 import team3 from './img/team/team-3.jpg';
 import team4 from './img/team/team-4.jpg';
 
+import React, { useState } from 'react';
+
+
+
 const Home = () => {
+  const [lat, setLat] = useState(null);
+const [lng, setLng] = useState(null);
+const [status, setStatus] = useState(null);
+
+const getLocation = () => {
+  if (!navigator.geolocation) {
+    setStatus('Geolocation is not supported by your browser');
+  } else {
+    setStatus('Locating...');
+    navigator.geolocation.getCurrentPosition((position) => {
+      setStatus(null);
+      setLat(position.coords.latitude);
+      setLng(position.coords.longitude);
+    }, () => {
+      setStatus('Unable to retrieve your location');
+    });
+  }
+}
+
     return ( <div className="home">
         <header id="header" className="fixed-top d-flex align-items-center">
     <div className="container d-flex align-items-center justify-content-between">
 
       <div className="logo">
-        <h1><a href="index.html">Vesperr</a></h1>
+        <h1><a href="index.html">Fliegen</a></h1>
         {/* <!-- Uncomment below if you prefer to use an image logo --> */}
         {/* <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" className="img-fluid"></a>--> */}
       </div>
@@ -80,10 +103,14 @@ const Home = () => {
     <div className="container">
       <div className="row">
         <div className="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-          <h1 data-aos="fade-up">Grow your business with Vesperr</h1>
+          <h1 data-aos="fade-up">Grow your business with Fliegen</h1>
+          <h1>Coordinates</h1>
+      <p>{status}</p>
+      {lat && <p>Latitude: {lat}</p>}
+      {lng && <p>Longitude: {lng}</p>}
           <h2 data-aos="fade-up" data-aos-delay="400">We are team of talented designers making websites with Bootstrap</h2>
-          <div data-aos="fade-up" data-aos-delay="800">
-            <a href="#about" className="btn-get-started scrollto">Get Started</a>
+          <div data-aos="fade-up" className='input-group' data-aos-delay="800">
+            <input type="text" className="btn-get-started scrollto" /><i onClick={getLocation} className="bi bi-geo-alt-fill"></i>
           </div>
         </div>
         <div className="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left" data-aos-delay="200">
@@ -124,7 +151,7 @@ const Home = () => {
           </div>
 
           <div className="col-lg-2 col-md-4 col-6">
-            <img src={cli6} className="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="500" />
+            <img src={cli6} style={{width:'25px'}} className="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="500" />
           </div>
 
         </div>
@@ -904,7 +931,7 @@ const Home = () => {
 
           <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div className="contact-about">
-              <h3>Vesperr</h3>
+              <h3>Fliegen</h3>
               <p>Cras fermentum odio eu feugiat. Justo eget magna fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>
               <div className="social-links">
                 <a href="#" className="twitter"><i className="bi bi-twitter"></i></a>
@@ -973,13 +1000,13 @@ const Home = () => {
       <div className="row d-flex align-items-center">
         <div className="col-lg-6 text-lg-left text-center">
           <div className="copyright">
-            &copy; Copyright <strong>Vesperr</strong>. All Rights Reserved
+            &copy; Copyright <strong>Fliegen</strong>. All Rights Reserved
           </div>
           <div className="credits">
             {/* <!-- All the links in the footer should remain intact. -->
             <!-- You can delete the links only if you purchased the pro version. -->
             <!-- Licensing information: https://bootstrapmade.com/license/ -->
-            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/vesperr-free-bootstrap-template/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/Fliegen-free-bootstrap-template/ -->
             Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> */}
           </div>
         </div>
