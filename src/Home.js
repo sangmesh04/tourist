@@ -26,7 +26,7 @@ import team3 from './img/team/team-3.jpg';
 import team4 from './img/team/team-4.jpg';
 
 import React, { useState } from 'react';
-
+import axios from "axios";
 
 
 const Home = () => {
@@ -49,12 +49,28 @@ const getLocation = () => {
   }
 }
 
+// const options = {
+//   method: 'GET',
+//   url: 'https://wft-geo-db.p.rapidapi.com/v1/geo/cities/Q60/nearbyCities',
+//   params: {radius: '100'},
+//   headers: {
+//     'x-rapidapi-host': 'wft-geo-db.p.rapidapi.com',
+//     'x-rapidapi-key': 'f5b8fb560emshf2a8fda2e440ec2p17e685jsn052b70a77cba'
+//   }
+// };
+
+// axios.request(options).then(function (response) {
+// 	console.log(response.data);
+// }).catch(function (error) {
+// 	console.error(error);
+// });
+
     return ( <div className="home">
         <header id="header" className="fixed-top d-flex align-items-center">
     <div className="container d-flex align-items-center justify-content-between">
 
       <div className="logo">
-        <h1><a href="index.html">Fliegen</a></h1>
+        <h1><a href="/result">Fliegen</a></h1>
         {/* <!-- Uncomment below if you prefer to use an image logo --> */}
         {/* <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" className="img-fluid"></a>--> */}
       </div>

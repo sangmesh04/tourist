@@ -1,10 +1,13 @@
 import './App.css';
 import Navbar from './Navbar';
 import Home from './Home';
+import SideBar from './Sidebar';
+
 function App() {
   return (
     <div className="App">
-      <Home />
+      {/* <Home /> */}
+      <SideBar />
     </div>
   );
 }
