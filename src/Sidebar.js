@@ -7,8 +7,8 @@ const SideBar = () => {
   <div className="app-header">
     <div className="app-header-left">
      <span className="app-icon"></span>
-     <a href="/home"><p className="app-name">Portfolio</p>
-      </a>
+     <Link to="/"><p className="app-name">Portfolio</p>
+      </Link>
       <div className="search-wrapper">
         <input className="search-input" type="text" placeholder="Search" />
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="feather feather-search" viewBox="0 0 24 24">

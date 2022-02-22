@@ -27,7 +27,7 @@ import team4 from './img/team/team-4.jpg';
 
 import React, { useState } from 'react';
 import axios from "axios";
-
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   const [lat, setLat] = useState(null);
@@ -70,7 +70,7 @@ const getLocation = () => {
     <div className="container d-flex align-items-center justify-content-between">
 
       <div className="logo">
-        <h1><a href="/result">Fliegen</a></h1>
+        <h1><Link to="/result">Fliegen</Link></h1>
         {/* <!-- Uncomment below if you prefer to use an image logo --> */}
         {/* <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" className="img-fluid"></a>--> */}
       </div>
