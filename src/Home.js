@@ -26,10 +26,11 @@ import team3 from './img/team/team-3.jpg';
 import team4 from './img/team/team-4.jpg';
 
 import React, { useState } from 'react';
-import axios from "axios";
+// import axios from "axios";
 import { Link } from 'react-router-dom';
 
 const Home = () => {
+  
   const [lat, setLat] = useState(null);
 const [lng, setLng] = useState(null);
 const [status, setStatus] = useState(null);
@@ -126,8 +127,11 @@ const getLocation = () => {
       {lng && <p>Longitude: {lng}</p>}
           <h2 data-aos="fade-up" data-aos-delay="400">We are team of talented designers making websites with Bootstrap</h2>
           <div data-aos="fade-up" className='input-group' data-aos-delay="800">
-            <input type="text" className="btn-get-started scrollto" /><i onClick={getLocation} className="bi bi-geo-alt-fill"></i>
+            <input type="text" id="autocomplete" className="btn-get-started scrollto" /><i onClick={getLocation} className="bi bi-geo-alt-fill"></i>
           </div>
+        </div>
+        <div id="details">
+
         </div>
         <div className="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left" data-aos-delay="200">
           <img src={hero} className="img-fluid animated" alt="" />
