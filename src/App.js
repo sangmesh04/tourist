@@ -2,6 +2,7 @@ import './App.css';
 import Navbar from './Navbar';
 import Home from './Home';
 import SideBar from './Sidebar';
+import Place from './Place';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 function App() {
@@ -14,6 +15,9 @@ function App() {
           </Route>
           <Route path="/result">
             <SideBar />
+          </Route>
+          <Route path="/place">
+            <Place />
           </Route>
         </Switch>
         </Router>

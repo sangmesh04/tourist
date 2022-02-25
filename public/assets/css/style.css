@@ -439,6 +439,12 @@ section {
 /*--------------------------------------------------------------
 # Clients
 --------------------------------------------------------------*/
+#clients .container .row #img6{
+  width: 30px;
+}
+#clients .container .row #img2{
+  width: 45px;
+}
 .clients {
   background: #f3f9fd;
   padding: 10px 0;
@@ -718,6 +724,54 @@ section {
 /*--------------------------------------------------------------
 # Features
 --------------------------------------------------------------*/
+#features .row #feat1
+{
+  color: #e80368;
+}
+#features .row #feat2
+{
+  color: #5578ff;
+}
+#features .row #feat3
+{
+  color: #ffbb2c;
+}
+#features .row #feat4
+{
+  color: #ffa76e;
+}
+#features .row #feat5
+{
+  color: #47aeff;
+}
+#features .row #feat6
+{
+  color: #11dbcf;
+}
+#features .row #feat7
+{
+  color: #4233ff;
+}
+#features .row #feat8
+{
+  color: #b2904f;
+}
+#features .row #feat9
+{
+  color: #b20969;
+}
+#features .row #feat10
+{
+  color: #ff5828;
+}
+#features .row #feat11
+{
+  color: #e80368;
+}
+#features .row #feat12
+{
+  color: #29cc61;
+}
 .features .icon-box {
   display: flex;
   align-items: center;

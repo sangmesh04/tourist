@@ -1,6 +1,6 @@
 import hero from './img/hero-img.png';
 import cli1 from './img/clients/gmaps.png';
-import cli2 from './img/clients/client-2.png';
+import cli2 from './img/clients/uber.png';
 import cli3 from './img/clients/client-3.png';
 import cli4 from './img/clients/ola.png';
 import cli5 from './img/clients/rapidapi.png';
@@ -11,15 +11,6 @@ import test2 from './img/testimonials/testimonials-2.jpg';
 import test3 from './img/testimonials/testimonials-3.jpg';
 import test4 from './img/testimonials/testimonials-4.jpg';
 import test5 from './img/testimonials/testimonials-5.jpg';
-import port1 from './img/portfolio/portfolio-1.jpg';
-import port2 from './img/portfolio/portfolio-2.jpg';
-import port3 from './img/portfolio/portfolio-3.jpg';
-import port4 from './img/portfolio/portfolio-4.jpg';
-import port5 from './img/portfolio/portfolio-5.jpg';
-import port6 from './img/portfolio/portfolio-6.jpg';
-import port7 from './img/portfolio/portfolio-7.jpg';
-import port8 from './img/portfolio/portfolio-8.jpg';
-import port9 from './img/portfolio/portfolio-9.jpg';
 import team1 from './img/team/team-1.jpg';
 import team2 from './img/team/team-2.jpg';
 import team3 from './img/team/team-3.jpg';
@@ -31,7 +22,7 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
   
-  const [lat, setLat] = useState(null);
+const [lat, setLat] = useState(null);
 const [lng, setLng] = useState(null);
 const [status, setStatus] = useState(null);
 
@@ -50,21 +41,44 @@ const getLocation = () => {
   }
 }
 
-// const options = {
-//   method: 'GET',
-//   url: 'https://wft-geo-db.p.rapidapi.com/v1/geo/cities/Q60/nearbyCities',
-//   params: {radius: '100'},
-//   headers: {
-//     'x-rapidapi-host': 'wft-geo-db.p.rapidapi.com',
-//     'x-rapidapi-key': 'f5b8fb560emshf2a8fda2e440ec2p17e685jsn052b70a77cba'
-//   }
-// };
+const [company,AddCompany] = useState([
+  {image:cli1,id:"img1"},
+  {image:cli2,id:"img2"},
+  {image:cli3,id:"img3"},
+  {image:cli4,id:"img4"},
+  {image:cli5,id:"img5"},
+  {image:cli6,id:"img6"}
+])
 
-// axios.request(options).then(function (response) {
-// 	console.log(response.data);
-// }).catch(function (error) {
-// 	console.error(error);
-// });
+const [services,Addservice] = useState([
+ {icon:"bx bx-world",title:"Nemo Enim",description:"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis",id:"1"},
+ {icon:"bx bx-tachometer",title:"Magni Dolores",description:"Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia",id:"2"},
+ {icon:"bx bx-file",title:"Sed ut perspiciatis",description:"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore",id:"3"},
+ {icon:"bx bxl-dribbble",title:"Lorem Ipsum",description:"Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi",id:"4"}
+])
+
+const [features,AddFeature] = useState([
+  {icon:"ri-calendar-todo-line",title:"Sed perspiciatis",id:"feat1"},
+  {icon:"ri-bar-chart-box-line",title:"Dolor Sitema",id:"feat2"},
+  {icon:"ri-store-line",title:"Lorem Ipsum",id:"feat3"},
+  {icon:"ri-paint-brush-line",title:"Magni Dolores",id:"feat4"},
+  {icon:"ri-database-2-line",title:"Nemo Enim",id:"feat5"},
+  {icon:"ri-gradienter-line",title:"Eiusmod Tempor",id:"feat6"},
+  {icon:"ri-file-list-3-line",title:"Midela Teren",id:"feat7"},
+  {icon:"ri-price-tag-2-line",title:"Pira Neve",id:"feat8"},
+  {icon:"ri-anchor-line",title:"Dirada Pack",id:"feat9"},
+  {icon:"ri-disc-line",title:"Moton Ideal",id:"feat10"},
+  {icon:"ri-base-station-line",title:"Verdo Park",id:"feat11"},
+  {icon:"ri-fingerprint-line",title:"Flavor Nivelanda",id:"feat12"},
+])
+
+const [faqs,Addfaq] = useState([
+  {quest:"Tempus quam pellentesque nec nam aliquam sem et tortor consequat?",ans:" Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in",id:"1"},
+  {quest:"Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?",ans:"Aperiam itaque sit optio et deleniti eos nihil quidem cumque. Voluptas dolorum accusantium sunt sit enim. Provident consequuntur quam aut reiciendis qui rerum dolorem sit odio. Repellat assumenda soluta sunt pariatur error doloribus fuga.",id:"2"},
+  {quest:"Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi?",ans:"Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.",id:"3"},
+  {quest:"Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?",ans:" Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim.",id:"4"},
+  {quest:"Non consectetur a erat nam at lectus urna duis?",ans:"Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus.",id:"5"}
+])
 
     return ( <div className="home">
         <header id="header" className="fixed-top d-flex align-items-center">
@@ -150,29 +164,11 @@ const getLocation = () => {
 
         <div className="row">
 
-          <div className="col-lg-2 col-md-4 col-6">
-            <img src={cli1}className="img-fluid" alt="" data-aos="zoom-in" />
-          </div>
-
-          <div className="col-lg-2 col-md-4 col-6">
-            <img src={cli2} className="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="100"/>
-          </div>
-
-          <div className="col-lg-2 col-md-4 col-6">
-            <img src={cli3} className="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="200" />
-          </div>
-
-          <div className="col-lg-2 col-md-4 col-6">
-            <img src={cli4} className="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="300" />
-          </div>
-
-          <div className="col-lg-2 col-md-4 col-6">
-            <img src={cli5} className="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="400" />
-          </div>
-
-          <div className="col-lg-2 col-md-4 col-6">
-            <img src={cli6} style={{width:'25px'}} className="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="500" />
-          </div>
+          {company.map((comp) =>(
+            <div className="col-lg-2 col-md-4 col-6" key={comp.id} >
+            <img src={comp.image} id={comp.id} className="img-fluid" alt="" data-aos="zoom-in" />
+            </div>
+          ))}
 
         </div>
 
@@ -277,92 +273,21 @@ const getLocation = () => {
         </div>
 
         <div className="row">
-          <div className="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+          {services.map((serv)=>(
+            <div className="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" key={serv.id}>
             <div className="icon-box" data-aos="fade-up" data-aos-delay="100">
-              <div className="icon"><i className="bx bxl-dribbble"></i></div>
-              <h4 className="title"><a href="">Lorem Ipsum</a></h4>
-              <p className="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+              <div className="icon"><i className={serv.icon}></i></div>
+              <h4 className="title"><a href="">{serv.title}</a></h4>
+              <p className="description">{serv.description}</p>
             </div>
           </div>
-
-          <div className="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-            <div className="icon-box" data-aos="fade-up" data-aos-delay="200">
-              <div className="icon"><i className="bx bx-file"></i></div>
-              <h4 className="title"><a href="">Sed ut perspiciatis</a></h4>
-              <p className="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-            </div>
-          </div>
-
-          <div className="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-            <div className="icon-box" data-aos="fade-up" data-aos-delay="300">
-              <div className="icon"><i className="bx bx-tachometer"></i></div>
-              <h4 className="title"><a href="">Magni Dolores</a></h4>
-              <p className="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-            </div>
-          </div>
-
-          <div className="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-            <div className="icon-box" data-aos="fade-up" data-aos-delay="400">
-              <div className="icon"><i className="bx bx-world"></i></div>
-              <h4 className="title"><a href="">Nemo Enim</a></h4>
-              <p className="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-            </div>
-          </div>
+          ))}
 
         </div>
 
       </div>
     </section>
     {/* <!-- End Services Section --> */}
-
-    {/* <!-- ======= More Services Section ======= --> */}
-    <section id="more-services" className="more-services">
-      <div className="container">
-
-        <div className="row">
-          <div className="col-md-6 d-flex align-items-stretch">
-            <div className="card"  style={{backgroundImage: 'url("assets/img/more-services-1.jpg")'}} data-aos="fade-up" data-aos-delay="100">
-              <div className="card-body">
-                <h5 className="card-title"><a href="">Lobira Duno</a></h5>
-                <p className="card-text">Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua.</p>
-                <div className="read-more"><a href="#"><i className="bi bi-arrow-right"></i> Read More</a></div>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-            <div className="card" style={{backgroundImage: 'url("assets/img/more-services-2.jpg")'}} data-aos="fade-up" data-aos-delay="200">
-              <div className="card-body">
-                <h5 className="card-title"><a href="">Limere Radses</a></h5>
-                <p className="card-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem doloremque laudantium, totam rem.</p>
-                <div className="read-more"><a href="#"><i className="bi bi-arrow-right"></i> Read More</a></div>
-              </div>
-            </div>
-
-          </div>
-          <div className="col-md-6 d-flex align-items-stretch mt-4">
-            <div className="card" style={{backgroundImage: 'url("assets/img/more-services-3.jpg")'}} data-aos="fade-up" data-aos-delay="100">
-              <div className="card-body">
-                <h5 className="card-title"><a href="">Nive Lodo</a></h5>
-                <p className="card-text">Nemo enim ipsam voluptatem quia voluptas sit aut odit aut fugit, sed quia magni dolores.</p>
-                <div className="read-more"><a href="#"><i className="bi bi-arrow-right"></i> Read More</a></div>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-6 d-flex align-items-stretch mt-4">
-            <div className="card" style={{backgroundImage: 'url("assets/img/more-services-4.jpg")'}} data-aos="fade-up" data-aos-delay="200">
-              <div className="card-body">
-                <h5 className="card-title"><a href="">Pale Treda</a></h5>
-                <p className="card-text">Nostrum eum sed et autem dolorum perspiciatis. Magni porro quisquam laudantium voluptatem.</p>
-                <div className="read-more"><a href="#"><i className="bi bi-arrow-right"></i> Read More</a></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-    {/* <!-- End More Services Section --> */}
-
     {/* <!-- ======= Features Section ======= --> */}
     <section id="features" className="features">
       <div className="container">
@@ -373,78 +298,14 @@ const getLocation = () => {
         </div>
 
         <div className="row" data-aos="fade-up" data-aos-delay="300">
-          <div className="col-lg-3 col-md-4">
+          {features.map((feat)=>(
+            <div className="col-lg-3 col-md-4" key={feat.id}>
             <div className="icon-box">
-              <i className="ri-store-line" style={{color: '#ffbb2c'}}></i>
-              <h3><a href="">Lorem Ipsum</a></h3>
+              <i className={feat.icon} id={feat.id}></i>
+              <h3><a href="">{feat.title}</a></h3>
             </div>
           </div>
-          <div className="col-lg-3 col-md-4 mt-4 mt-md-0">
-            <div className="icon-box">
-              <i className="ri-bar-chart-box-line" style={{color: '#5578ff'}}></i>
-              <h3><a href="">Dolor Sitema</a></h3>
-            </div>
-          </div>
-          <div className="col-lg-3 col-md-4 mt-4 mt-md-0">
-            <div className="icon-box">
-              <i className="ri-calendar-todo-line" style={{color: '#e80368'}}></i>
-              <h3><a href="">Sed perspiciatis</a></h3>
-            </div>
-          </div>
-          <div className="col-lg-3 col-md-4 mt-4 mt-lg-0">
-            <div className="icon-box">
-              <i className="ri-paint-brush-line" style={{color: '#e361ff'}}></i>
-              <h3><a href="">Magni Dolores</a></h3>
-            </div>
-          </div>
-          <div className="col-lg-3 col-md-4 mt-4">
-            <div className="icon-box">
-              <i className="ri-database-2-line" style={{color: '#47aeff'}}></i>
-              <h3><a href="">Nemo Enim</a></h3>
-            </div>
-          </div>
-          <div className="col-lg-3 col-md-4 mt-4">
-            <div className="icon-box">
-              <i className="ri-gradienter-line" style={{color: '#ffa76e'}}></i>
-              <h3><a href="">Eiusmod Tempor</a></h3>
-            </div>
-          </div>
-          <div className="col-lg-3 col-md-4 mt-4">
-            <div className="icon-box">
-              <i className="ri-file-list-3-line" style={{color: '#11dbcf'}}></i>
-              <h3><a href="">Midela Teren</a></h3>
-            </div>
-          </div>
-          <div className="col-lg-3 col-md-4 mt-4">
-            <div className="icon-box">
-              <i className="ri-price-tag-2-line" style={{color: '#4233ff'}}></i>
-              <h3><a href="">Pira Neve</a></h3>
-            </div>
-          </div>
-          <div className="col-lg-3 col-md-4 mt-4">
-            <div className="icon-box">
-              <i className="ri-anchor-line" style={{color: '#b2904f'}}></i>
-              <h3><a href="">Dirada Pack</a></h3>
-            </div>
-          </div>
-          <div className="col-lg-3 col-md-4 mt-4">
-            <div className="icon-box">
-              <i className="ri-disc-line" style={{color: '#b20969'}}></i>
-              <h3><a href="">Moton Ideal</a></h3>
-            </div>
-          </div>
-          <div className="col-lg-3 col-md-4 mt-4">
-            <div className="icon-box">
-              <i className="ri-base-station-line" style={{color: '#ff5828'}}></i>
-              <h3><a href="">Verdo Park</a></h3>
-            </div>
-          </div>
-          <div className="col-lg-3 col-md-4 mt-4">
-            <div className="icon-box">
-              <i className="ri-fingerprint-line" style={{color: '#29cc61'}}></i>
-              <h3><a href="">Flavor Nivelanda</a></h3>
-            </div>
-          </div>
+          ))}
         </div>
 
       </div>
@@ -551,160 +412,6 @@ const getLocation = () => {
     </section>
     {/* <!-- End Testimonials Section --> */}
 
-    {/* <!-- ======= Portfolio Section ======= --> */}
-    <section id="portfolio" className="portfolio">
-      <div className="container">
-
-        <div className="section-title" data-aos="fade-up">
-          <h2>Portfolio</h2>
-          <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem</p>
-        </div>
-
-        <div className="row" data-aos="fade-up" data-aos-delay="200">
-          <div className="col-lg-12 d-flex justify-content-center">
-            <ul id="portfolio-flters">
-              <li data-filter="*" className="filter-active">All</li>
-              <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-card">Card</li>
-              <li data-filter=".filter-web">Web</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="row portfolio-container" data-aos="fade-up" data-aos-delay="400">
-
-          <div className="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div className="portfolio-wrap">
-              <img src={port1} className="img-fluid" alt="" />
-              <div className="portfolio-info">
-                <h4>App 1</h4>
-                <p>App</p>
-                <div className="portfolio-links">
-                  <a href={port1} data-gallery="portfolioGallery" className="portfolio-lightbox" title="App 1"><i className="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i className="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div className="portfolio-wrap">
-              <img src={port2} className="img-fluid" alt="" />
-              <div className="portfolio-info">
-                <h4>Web 3</h4>
-                <p>Web</p>
-                <div className="portfolio-links">
-                  <a href={port2} data-gallery="portfolioGallery" className="portfolio-lightbox" title="Web 3"><i className="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i className="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div className="portfolio-wrap">
-              <img src={port3} className="img-fluid" alt="" />
-              <div className="portfolio-info">
-                <h4>App 2</h4>
-                <p>App</p>
-                <div className="portfolio-links">
-                  <a href={port3} data-gallery="portfolioGallery" className="portfolio-lightbox" title="App 2"><i className="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i className="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div className="portfolio-wrap">
-              <img src={port4} className="img-fluid" alt="" />
-              <div className="portfolio-info">
-                <h4>Card 2</h4>
-                <p>Card</p>
-                <div className="portfolio-links">
-                  <a href={port4} data-gallery="portfolioGallery" className="portfolio-lightbox" title="Card 2"><i className="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i className="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div className="portfolio-wrap">
-              <img src={port5} className="img-fluid" alt="" />
-              <div className="portfolio-info">
-                <h4>Web 2</h4>
-                <p>Web</p>
-                <div className="portfolio-links">
-                  <a href={port5} data-gallery="portfolioGallery" className="portfolio-lightbox" title="Web 2"><i className="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i className="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div className="portfolio-wrap">
-              <img src={port6} className="img-fluid" alt="" />
-              <div className="portfolio-info">
-                <h4>App 3</h4>
-                <p>App</p>
-                <div className="portfolio-links">
-                  <a href={port6} data-gallery="portfolioGallery" className="portfolio-lightbox" title="App 3"><i className="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i className="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div className="portfolio-wrap">
-              <img src={port7} className="img-fluid" alt="" />
-              <div className="portfolio-info">
-                <h4>Card 1</h4>
-                <p>Card</p>
-                <div className="portfolio-links">
-                  <a href={port7} data-gallery="portfolioGallery" className="portfolio-lightbox" title="Card 1"><i className="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i className="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div className="portfolio-wrap">
-              <img src={port8} className="img-fluid" alt="" />
-              <div className="portfolio-info">
-                <h4>Card 3</h4>
-                <p>Card</p>
-                <div className="portfolio-links">
-                  <a href={port8} data-gallery="portfolioGallery" className="portfolio-lightbox" title="Card 3"><i className="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i className="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div className="portfolio-wrap">
-              <img src={port9} className="img-fluid" alt="" />
-              <div className="portfolio-info">
-                <h4>Web 3</h4>
-                <p>Web</p>
-                <div className="portfolio-links">
-                  <a href={port9} data-gallery="portfolioGallery" className="portfolio-lightbox" title="Web 3"><i className="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i className="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-    {/* <!-- End Portfolio Section --> */}
-
     {/* <!-- ======= Team Section ======= --> */}
     <section id="team" className="team section-bg">
       <div className="container">
@@ -794,74 +501,6 @@ const getLocation = () => {
     </section>
     {/* <!-- End Team Section --> */}
 
-    {/* <!-- ======= Pricing Section ======= --> */}
-    <section id="pricing" className="pricing">
-      <div className="container">
-
-        <div className="section-title">
-          <h2>Pricing</h2>
-          <p>Sit sint consectetur velit nemo qui impedit suscipit alias ea</p>
-        </div>
-
-        <div className="row">
-
-          <div className="col-lg-4 col-md-6">
-            <div className="box" data-aos="zoom-in-right" data-aos-delay="200">
-              <h3>Free</h3>
-              <h4><sup>$</sup>0<span> / month</span></h4>
-              <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li className="na">Pharetra massa</li>
-                <li className="na">Massa ultricies mi</li>
-              </ul>
-              <div className="btn-wrap">
-                <a href="#" className="btn-buy">Buy Now</a>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-lg-4 col-md-6 mt-4 mt-md-0">
-            <div className="box recommended" data-aos="zoom-in" data-aos-delay="100">
-              <h3>Business</h3>
-              <h4><sup>$</sup>19<span> / month</span></h4>
-              <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li>Pharetra massa</li>
-                <li className="na">Massa ultricies mi</li>
-              </ul>
-              <div className="btn-wrap">
-                <a href="#" className="btn-buy">Buy Now</a>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-lg-4 col-md-6 mt-4 mt-lg-0">
-            <div className="box" data-aos="zoom-in-left" data-aos-delay="200">
-              <h3>Developer</h3>
-              <h4><sup>$</sup>29<span> / month</span></h4>
-              <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li>Pharetra massa</li>
-                <li>Massa ultricies mi</li>
-              </ul>
-              <div className="btn-wrap">
-                <a href="#" className="btn-buy">Buy Now</a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-    {/* <!-- End Pricing Section --> */}
-
     {/* <!-- ======= F.A.Q Section ======= --> */}
     <section id="faq" className="faq">
       <div className="container">
@@ -870,69 +509,20 @@ const getLocation = () => {
           <h2>Frequently Asked Questions</h2>
         </div>
 
-        <div className="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+        {faqs.map((q)=>(
+          <div className="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100" key={q.id}>
           <div className="col-lg-5">
             <i className="ri-question-line"></i>
-            <h4>Non consectetur a erat nam at lectus urna duis?</h4>
+            <h4>{q.quest}</h4>
           </div>
           <div className="col-lg-7">
             <p>
-              Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+              {q.ans}
             </p>
           </div>
         </div>
-        {/* <!-- End F.A.Q Item--> */}
-
-        <div className="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-          <div className="col-lg-5">
-            <i className="ri-question-line"></i>
-            <h4>Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?</h4>
-          </div>
-          <div className="col-lg-7">
-            <p>
-              Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim.
-            </p>
-          </div>
-        </div>
-        {/* <!-- End F.A.Q Item--> */}
-
-        <div className="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-          <div className="col-lg-5">
-            <i className="ri-question-line"></i>
-            <h4>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi?</h4>
-          </div>
-          <div className="col-lg-7">
-            <p>
-              Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus.
-            </p>
-          </div>
-        </div>
-        {/* <!-- End F.A.Q Item--> */}
-
-        <div className="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-          <div className="col-lg-5">
-            <i className="ri-question-line"></i>
-            <h4>Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</h4>
-          </div>
-          <div className="col-lg-7">
-            <p>
-              Aperiam itaque sit optio et deleniti eos nihil quidem cumque. Voluptas dolorum accusantium sunt sit enim. Provident consequuntur quam aut reiciendis qui rerum dolorem sit odio. Repellat assumenda soluta sunt pariatur error doloribus fuga.
-            </p>
-          </div>
-        </div>
-        {/* <!-- End F.A.Q Item--> */}
-
-        <div className="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="500">
-          <div className="col-lg-5">
-            <i className="ri-question-line"></i>
-            <h4>Tempus quam pellentesque nec nam aliquam sem et tortor consequat?</h4>
-          </div>
-          <div className="col-lg-7">
-            <p>
-              Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
-            </p>
-          </div>
-        </div>
+        ))}
+          
         {/* <!-- End F.A.Q Item--> */}
 
       </div>
