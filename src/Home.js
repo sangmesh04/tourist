@@ -21,7 +21,24 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
-  
+    const MobileToggle = () => {
+      var mobileTogggle = document.getElementById("mobileTogl");
+      var navbar = document.getElementById("navbar");
+      navbar.classList.toggle('navbar-mobile');
+      mobileTogggle.classList.toggle('bi-list');
+      mobileTogggle.classList.toggle('bi-x');
+}
+
+const HideNavbar = () =>{
+    var navbar = document.getElementById("navbar");
+    if (navbar.classList.contains('navbar-mobile')) {
+      navbar.classList.remove('navbar-mobile')
+      var mobileTogggle = document.getElementById("mobileTogl");
+      mobileTogggle.classList.toggle('bi-list')
+      mobileTogggle.classList.toggle('bi-x')
+    }
+  }
+
 const [lat, setLat] = useState(null);
 const [lng, setLng] = useState(null);
 const [status, setStatus] = useState(null);
@@ -93,13 +110,13 @@ const [faqs,Addfaq] = useState([
       <nav id="navbar" className="navbar navbar-expand-lg">
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-          <li><a className="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a className="nav-link scrollto" href="#about">About</a></li>
-          <li><a className="nav-link scrollto" href="#services">Services</a></li>
-          <li><a className="nav-link scrollto " href="#portfolio">Portfolio</a></li>
-          <li><a className="nav-link scrollto" href="#team">Team</a></li>
-          <li><a className="nav-link scrollto" href="#pricing">Pricing</a></li>
-          <li className="dropdown"><a href="#"><span>Drop Down</span> <i className="bi bi-chevron-down"></i></a>
+          <li><a className="nav-link scrollto" onClick={HideNavbar} href="#hero">Home</a></li>
+          <li><a className="nav-link scrollto" onClick={HideNavbar} href="#about">About</a></li>
+          <li><a className="nav-link scrollto" onClick={HideNavbar} href="#services">Services</a></li>
+          <li><a className="nav-link scrollto" onClick={HideNavbar} href="#portfolio">Portfolio</a></li>
+          <li><a className="nav-link scrollto" onClick={HideNavbar} href="#team">Team</a></li>
+          {/* <li><a className="nav-link scrollto" onClick={HideNavbar} href="#pricing">Pricing</a></li> */}
+          {/* <li className="dropdown"><a href="#"><span>Drop Down</span> <i className="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>
               <li className="dropdown"><a href="#"><span>Deep Drop Down</span> <i className="bi bi-chevron-right"></i></a>
@@ -115,12 +132,12 @@ const [faqs,Addfaq] = useState([
               <li><a href="#">Drop Down 3</a></li>
               <li><a href="#">Drop Down 4</a></li>
             </ul>
-          </li>
-          <li><a className="nav-link scrollto" href="#contact">Contact</a></li>
-          <li><a className="getstarted scrollto" href="#about">Get Started</a></li>
+          </li> */}
+          <li><a className="nav-link scrollto" onClick={HideNavbar} href="#contact">Contact</a></li>
+          <li><a className="getstarted scrollto" onClick={HideNavbar} href="#about">Get Started</a></li>
         </ul>
         </div>
-        <i className="bi bi-list navbar-toggler mobile-nav-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"></i>
+        <i className="bi bi-list navbar-toggler mobile-nav-toggle" id='mobileTogl' onClick={MobileToggle} type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"></i>
       </nav>
       {/* <!-- .navbar --> */}
 
@@ -141,7 +158,7 @@ const [faqs,Addfaq] = useState([
       {lng && <p>Longitude: {lng}</p>}
           <h2 data-aos="fade-up" data-aos-delay="400">We are team of talented designers making websites with Bootstrap</h2>
           <div data-aos="fade-up" className='input-group' data-aos-delay="800">
-            <input type="text" id="autocomplete" className="btn-get-started scrollto" /><i onClick={getLocation} className="bi bi-geo-alt-fill"></i>
+            <input type="text" id="autocomplete" className="btn-get-started scrollto" onClick={HideNavbar} /><i onClick={getLocation} className="bi bi-geo-alt-fill"></i>
           </div>
         </div>
         <div id="details">
@@ -321,7 +338,68 @@ const [faqs,Addfaq] = useState([
           <p>Magnam dolores commodi suscipit eum quidem consectetur velit</p>
         </div>
 
-        <div className="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+        <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">
+  <div className="carousel-inner">
+    <div className="carousel-item active">
+    <div className="swiper-slide">
+              <div className="testimonial-wrap">
+                <div className="testimonial-item">
+                  <img src={test1} className="testimonial-img" alt="" />
+                  <h3>Saul Goodman</h3>
+                  <h4>Ceo &amp; Founder</h4>
+                  <p>
+                    <i className="bx bxs-quote-alt-left quote-icon-left"></i>
+                    Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                    <i className="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div>
+    </div>
+    <div className="carousel-item">
+    <div className="swiper-slide">
+              <div className="testimonial-wrap">
+                <div className="testimonial-item">
+                  <img src={test2} className="testimonial-img" alt="" />
+                  <h3>Sara Wilsson</h3>
+                  <h4>Designer</h4>
+                  <p>
+                    <i className="bx bxs-quote-alt-left quote-icon-left"></i>
+                    Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                    <i className="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div>
+    </div>
+    <div className="carousel-item">
+    <div className="swiper-slide">
+              <div className="testimonial-wrap">
+                <div className="testimonial-item">
+                  <img src={test3} className="testimonial-img" alt="" />
+                  <h3>Jena Karlis</h3>
+                  <h4>Store Owner</h4>
+                  <p>
+                    <i className="bx bxs-quote-alt-left quote-icon-left"></i>
+                    Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                    <i className="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div>
+    </div>
+  </div>
+  <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span className="visually-hidden">Previous</span>
+  </button>
+  <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+    <span className="visually-hidden">Next</span>
+  </button>
+</div>
+
+        {/* <div className="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
           <div className="swiper-wrapper">
 
             <div className="swiper-slide">
@@ -338,7 +416,7 @@ const [faqs,Addfaq] = useState([
                 </div>
               </div>
             </div>
-            {/* <!-- End testimonial item --> */}
+         
 
             <div className="swiper-slide">
               <div className="testimonial-wrap">
@@ -354,7 +432,7 @@ const [faqs,Addfaq] = useState([
                 </div>
               </div>
             </div>
-            {/* <!-- End testimonial item --> */}
+        
 
             <div className="swiper-slide">
               <div className="testimonial-wrap">
@@ -370,7 +448,7 @@ const [faqs,Addfaq] = useState([
                 </div>
               </div>
             </div>
-            {/* <!-- End testimonial item --> */}
+         
 
             <div className="swiper-slide">
               <div className="testimonial-wrap">
@@ -386,7 +464,7 @@ const [faqs,Addfaq] = useState([
                 </div>
               </div>
             </div>
-            {/* <!-- End testimonial item --> */}
+         
 
             <div className="swiper-slide">
               <div className="testimonial-wrap">
@@ -402,11 +480,11 @@ const [faqs,Addfaq] = useState([
                 </div>
               </div>
             </div>
-            {/* <!-- End testimonial item --> */}
+    
 
           </div>
           <div className="swiper-pagination"></div>
-        </div>
+        </div> */}
 
       </div>
     </section>
@@ -622,8 +700,8 @@ const [faqs,Addfaq] = useState([
         </div>
         <div className="col-lg-6">
           <nav className="footer-links text-lg-right text-center pt-2 pt-lg-0">
-            <a href="#intro" className="scrollto">Home</a>
-            <a href="#about" className="scrollto">About</a>
+            <a href="#intro" className="scrollto" onClick={HideNavbar}>Home</a>
+            <a href="#about" className="scrollto" onClick={HideNavbar}>About</a>
             <a href="#">Privacy Policy</a>
             <a href="#">Terms of Use</a>
           </nav>
