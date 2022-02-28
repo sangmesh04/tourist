@@ -1,8 +1,18 @@
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+
 const Place = () => {
+  const ThemeMode = () => {
+    var modeSwitch = document.querySelector('.mode-switch');
+  
+    modeSwitch.addEventListener('click', function () {                     
+      document.documentElement.classList.toggle('dark');
+      modeSwitch.classList.toggle('active');
+    });
+  }
+
     return ( 
         <div>
-        <div className="app-container">
+        <div className="app-container" onLoad={ThemeMode}>
   <div className="app-header">
     <div className="app-header-left">
      <span className="app-icon"></span>
