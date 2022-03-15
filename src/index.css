@@ -729,11 +729,21 @@ code {
 	 .project-boxes {
 		 overflow-y: visible;
 	}
-	 .app-sidebar, .app-icon {
+	 /* .app-sidebar, .app-icon {
 		 display: none;
+	} */
+	.app-sidebar{
+		padding: 0px;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-evenly;
+	}
+	.app-sidebar a{
+		margin-right: 3px;
 	}
 	 .app-content {
-		 padding: 16px 12px 24px 12px;
+		 padding: 6px 12px 24px 12px;
+		 display: block;
 	}
 	 .status-number, .status-type {
 		 font-size: 10px;
@@ -807,3 +817,7 @@ code {
 	}
 }
  
+.sliderForPlace .carousel-inner .carousel-item img{
+	width: 500px;
+	height: 500px;
+}

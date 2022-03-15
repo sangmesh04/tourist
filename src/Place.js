@@ -1,4 +1,7 @@
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+// import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Link } from "react-router-dom";
+import PlaceSlider from "./PlaceSlider";
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 const Place = () => {
   const ThemeMode = () => {
@@ -61,11 +64,11 @@ const Place = () => {
           <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
           <polyline points="9 22 9 12 15 12 15 22" /></svg>
       </a>
-      <a href="" className="app-sidebar-link">
+      <Link to="locationInfo" className="app-sidebar-link">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-geo-alt-fill" viewBox="0 0 16 16">
   <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
 </svg>
-      </a>
+      </Link>
       <a href="" className="app-sidebar-link">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-cart-fill" viewBox="0 0 16 16">
   <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
@@ -82,10 +85,26 @@ const Place = () => {
   <path id="Icon_map-food" data-name="Icon map-food" d="M35.2,10.911,32.37,33.12H22.8L19.979,10.8H31.662l2.309-7.975,1.309.395-2.215,7.675,2.139.017ZM18.626,23.76s.358-2.88-4.6-2.88h-7.9c-4.955,0-4.6,2.88-4.6,2.88H18.626ZM1.515,30.24s-.351,2.88,4.6,2.88h7.9c4.962,0,4.6-2.88,4.6-2.88H1.515ZM17.884,28.8A1.656,1.656,0,0,0,19.352,27a1.654,1.654,0,0,0-1.468-1.8H2.189A1.657,1.657,0,0,0,.72,27a1.659,1.659,0,0,0,1.469,1.8h15.7Z" transform="translate(-0.72 -2.825)"/>
 </svg>      
 </a>
+</div>
+
+<div className="projects-section">
+      <div className="projects-section-header">
+        <p><i className="bi bi-caret-right-fill"></i> Bangalore Palace</p>
+        <p className="time"><i className="bi bi-geo-alt-fill"></i> Chikkatoguru Main Road, Pragathi Nagar, Chikkathoguru, Bengaluru, 560100, Karnataka, India</p>
+      </div>
+
+      <Router>
+        <Switch>
+          <Route exact path="/place">
+          <PlaceSlider />
+          </Route>
+      </Switch>
+      </Router>
+
 
 </div>
 </div>
-</div>
+  </div>
   </div>
      );
 }
