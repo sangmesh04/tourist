@@ -4,13 +4,12 @@ import PlaceSlider from "./PlaceSlider";
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 const Place = () => {
-  const ThemeMode = () => {
+  function ThemeMode  () {
     var modeSwitch = document.querySelector('.mode-switch');
-  
-    modeSwitch.addEventListener('click', function () {                     
+    // function changeMode() {                     
       document.documentElement.classList.toggle('dark');
       modeSwitch.classList.toggle('active');
-    });
+    // };
   }
 
     return ( 
@@ -31,7 +30,7 @@ const Place = () => {
       </div>
     </div>
     <div className="app-header-right">
-      <button className="mode-switch" title="Switch Theme">
+      <button className="mode-switch" onClick={ThemeMode} title="Switch Theme">
         <svg className="moon" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" width="24" height="24" viewBox="0 0 24 24">
           <defs></defs>
           <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>

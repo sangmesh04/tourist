@@ -9,13 +9,13 @@ const PlaceSlider = () => {
     </div>
     <div className="carousel-inner">
       <div className="carousel-item active">
-        <img src="https://www.holidify.com/images/cmsuploads/compressed/BangalorePalace16_20190904100428_20190904100439.jpg" className="d-block w-100" alt="..." />
+        <img src="https://www.holidify.com/images/cmsuploads/compressed/BangalorePalace16_20190904100428_20190904100439.jpg" className="d-block w-80" alt="..." />
       </div>
       <div className="carousel-item">
-        <img src="https://www.holidify.com/images/compressed/attractions/attr_1552.jpg" className="d-block w-100" alt="..." />
+        <img src="https://www.holidify.com/images/compressed/attractions/attr_1552.jpg" className="d-block w-80" alt="..." />
       </div>
       <div className="carousel-item">
-        <img src="https://www.holidify.com/images/cmsuploads/compressed/BangalorePalace10_20190920110923.jpg" className="d-block w-100" alt="..." />
+        <img src="https://www.holidify.com/images/cmsuploads/compressed/BangalorePalace10_20190920110923.jpg" className="d-block w-80" alt="..." />
       </div>
     </div>
     <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
