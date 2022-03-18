@@ -21,6 +21,13 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
+  const [Location,setLocation] = useState('');
+
+  function handleSubmit(e){
+    e.preventDefault();
+    const locationData = {Location, lat, lng};
+    console.log(locationData);
+  }
     const MobileToggle = () => {
       var mobileTogggle = document.getElementById("mobileTogl");
       var navbar = document.getElementById("navbar");
@@ -152,15 +159,18 @@ const [faqs,Addfaq] = useState([
       <div className="row">
         <div className="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
           <h1 data-aos="fade-up">Grow your business with Fliegen</h1>
-          <h1>Coordinates</h1>
+          {/* <h1>Coordinates</h1>
       <p>{status}</p>
       {lat && <p>Latitude: {lat}</p>}
-      {lng && <p>Longitude: {lng}</p>}
+      {lng && <p>Longitude: {lng}</p>} */}
           <h2 data-aos="fade-up" data-aos-delay="400">We are team of talented designers making websites with Bootstrap</h2>
+          <form onSubmit={handleSubmit}>
           <div data-aos="fade-up" className='input-group' data-aos-delay="800">
-            <input type="text" id="autocomplete" className="btn-get-started scrollto" onClick={HideNavbar} /><i onClick={getLocation} className="bi bi-geo-alt-fill"></i>
+            <input type="text" id="autocomplete" onChange={(e) => setLocation(e.target.value)} className="btn-get-started scrollto" onClick={HideNavbar} />
+            <i onClick={getLocation} className="bi bi-geo-alt-fill"></i>
           </div>
-          <button type="button" id="homeSearchBtn" className="btn btn-dark">Search</button>
+          <button type="submit" id="homeSearchBtn" className="btn btn-dark">Search</button>
+          </form>
         </div>
         <div id="details">
 

@@ -732,6 +732,12 @@ code {
 	}
 }
  @media screen and (max-width: 520px) {
+	 .info-side{
+		 width: 350px !important;
+	 }
+	 .week-list{
+		 margin: 10px !important;
+	 }
 	 #skeletonPart{
 		 width: 311px !important;
 		 margin: auto 0 10px 10px !important;
@@ -846,7 +852,7 @@ code {
 
 #homeSearchBtn{
 	width: 30%;
-	margin-left: 30%;
+	margin-left: -5%;
 	margin-top: 20px;
 	border-radius: 30px;
 }
