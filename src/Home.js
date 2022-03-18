@@ -160,6 +160,7 @@ const [faqs,Addfaq] = useState([
           <div data-aos="fade-up" className='input-group' data-aos-delay="800">
             <input type="text" id="autocomplete" className="btn-get-started scrollto" onClick={HideNavbar} /><i onClick={getLocation} className="bi bi-geo-alt-fill"></i>
           </div>
+          <button type="button" id="homeSearchBtn" className="btn btn-dark">Search</button>
         </div>
         <div id="details">
 

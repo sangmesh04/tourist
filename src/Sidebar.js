@@ -2,6 +2,13 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const SideBar = () => {
+  var mainContent = document.getElementById("mainContent");
+  var skeleton = document.getElementById("skeleton");
+  function hideSkeleton(){
+    // mainContent.style.display = "contents";
+    console.log("hello");
+    skeleton.style.display = "none";
+  }
   const ThemeMode = () => {
     var modeSwitch = document.querySelector('.mode-switch');
   
@@ -131,6 +138,63 @@ const SideBar = () => {
         </div>
       </div>
       <div className="project-boxes jsGridView">
+      <div className="row row-cols-1 row-cols-md-3 g-4" id="skeleton">        
+        <div className="project-box-wrapper">
+        <div className="card project-box col-md-3" id="skeletonPart" aria-hidden="true">
+          {/* <!-- <img src="..." className="card-img-top" alt="..."> --> */}
+          <div className="card-body">
+            <h5 className="card-title placeholder-glow">
+              <span className="placeholder col-6"></span>
+            </h5>
+            <p className="card-text placeholder-glow">
+              <span className="placeholder col-7"></span>
+              <span className="placeholder col-4"></span>
+              <span className="placeholder col-4"></span>
+              <span className="placeholder col-6"></span>
+              <span className="placeholder col-8"></span>
+            </p>
+            
+          </div>
+        </div>
+        </div>
+        <div className="project-box-wrapper">
+        <div className="card project-box col-md-3" style={{backgroundColor:"#fee4cb"}} id="skeletonPart" aria-hidden="true">
+          {/* <!-- <img src="..." className="card-img-top" alt="..."> --> */}
+          <div className="card-body">
+            <h5 className="card-title placeholder-glow">
+              <span className="placeholder col-6"></span>
+            </h5>
+            <p className="card-text placeholder-glow">
+              <span className="placeholder col-7"></span>
+              <span className="placeholder col-4"></span>
+              <span className="placeholder col-4"></span>
+              <span className="placeholder col-6"></span>
+              <span className="placeholder col-8"></span>
+            </p>
+            
+          </div>
+        </div>
+        </div>
+        <div className="project-box-wrapper" >
+        <div className="card project-box col-md-3" style={{backgroundColor:"#e9e7fd"}} id="skeletonPart" aria-hidden="true">
+          {/* <!-- <img src="..." className="card-img-top" alt="..."> --> */}
+          <div className="card-body">
+            <h5 className="card-title placeholder-glow">
+              <span className="placeholder col-6"></span>
+            </h5>
+            <p className="card-text placeholder-glow">
+              <span className="placeholder col-7"></span>
+              <span className="placeholder col-4"></span>
+              <span className="placeholder col-4"></span>
+              <span className="placeholder col-6"></span>
+              <span className="placeholder col-8"></span>
+            </p>
+            
+          </div>
+          </div>
+        </div>
+</div>
+<div id="mainContent" onLoad={() => this.hideSkeleton()}>
       {places.map((place) =>(
       <div className="project-box-wrapper" key={place.id}>
           <div className="project-box" style={{backgroundColor: place.cardBackgroundColor}}>
@@ -170,6 +234,7 @@ const SideBar = () => {
       </div>
     </div>
       ))}
+      </div>
       </div>
 </div>
 </div>
