@@ -37,6 +37,7 @@ code {
 	 --search-area-bg: #fff;
 	 --star: #1ff1c2 e;
 	 --message-btn: #fff;
+	 --sliderBtn : black;
 }
  .dark:root {
 	 --app-container: #1f1d2b;
@@ -57,6 +58,7 @@ code {
 	 --more-list-bg-hover: rgba(195, 207, 244, 0.1);
 	 --more-list-shadow: rgba(195, 207, 244, 0.1);
 	 --message-btn: rgba(195, 207, 244, 0.1);
+	 --sliderBtn: white;
 }
  html, body {
 	 width: 100%;
@@ -733,9 +735,10 @@ code {
 }
  @media screen and (max-width: 520px) {
 	 .info-side{
-		 width: 350px !important;
+		 width: 100% !important;
 	 }
 	 .week-list{
+		 display: flex;
 		 margin: 10px !important;
 	 }
 	 #skeletonPart{
@@ -745,8 +748,8 @@ code {
 	.sliderForPlace .carousel-inner .carousel-item img{
 	width: 300px !important;
 	height: 300px !important;
-	margin: 0% !important;
-	margin-left: 3% !important;
+	/* margin: 0% !important;
+	margin-left: 3% !important; */
 	}
 	 .projects-section {
 		 overflow: auto;
@@ -846,7 +849,7 @@ code {
 	/* width: 500px; */
 	width: 65%;
 	height: 500px;
-	margin-left: 18%;
+	/* margin-left: 18%; */
 	border-radius: 18px;
 }
 
@@ -1097,4 +1100,23 @@ code {
 	height: 1em;
 	width: auto;
 	margin-right: 5px;
+}
+
+.sliderForPlace{
+	display: flex;
+	justify-content: center;
+}
+
+#carouselExampleIndicators{
+	width: -webkit-fill-available;
+}
+.carousel-indicators [data-bs-target]{
+	background-color: var(--sliderBtn);
+}
+#slideNext{
+	font-size: 30px;
+	color: var(--sliderBtn);
+}
+.carousel-control-next-icon, .carousel-control-prev-icon{
+	background-image: none !important;
 }
