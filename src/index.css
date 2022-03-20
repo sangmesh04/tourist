@@ -1120,3 +1120,7 @@ code {
 .carousel-control-next-icon, .carousel-control-prev-icon{
 	background-image: none !important;
 }
+
+.week-container{
+	margin-top: -25px !important;
+}

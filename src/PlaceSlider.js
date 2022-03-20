@@ -1,4 +1,78 @@
+import { useState } from "react";
+
 const PlaceSlider = () => {
+
+  var dt = new Date();
+  var dateTime = (("0" + dt.getDate()).slice(-2)) + "." + (("0" + (dt.getMonth() + 1)).slice(-2)) + "." + (dt.getFullYear()) + " || " + (("0" + dt.getHours()).slice(-2)) + "." + (("0" + dt.getMinutes()).slice(-2));
+  
+  const [temperature, setTemperature] = useState("");
+  const [Placename, setPlacename] = useState("");
+  const [descrep, setDescription] = useState("");
+  const [humidity, setHumidity] = useState("");
+  const [windspeed, setWindSpeed] = useState("");
+  const [icon, setIcon] = useState("");
+  const [placeImg, SetPlaceImg] = useState("");
+  let weather = {
+    "apiKey":"ad4c63ac4b41ff78de0e4264cee1c7b1",
+    fetchWeather: function(city){
+      fetch( 
+        "http://api.openweathermap.org/data/2.5/weather?q=" 
+        + city 
+        +"&units=matric&appid=" 
+        + this.apiKey
+      )
+        .then((Response) => Response.json())
+        .then((data) => this.displayWeather(data));
+    },
+    displayWeather: function(data){
+      const { name }  = data;
+      const { icon, description } = data.weather[0];
+      const { temp, humidity } = data.main;
+      const { speed } = data.wind;
+      
+      setTemperature(temp);
+      setDescription(description);
+      setPlacename(name);
+      setHumidity(humidity);
+      setWindSpeed(speed);
+      setIcon("http://openweathermap.org/img/wn/" + icon + ".png");
+      SetPlaceImg("https://source.unsplash.com/1600x900/?" + name);
+      // console.log("temp: ",temperature);
+      // console.log(name,icon,description,temp,humidity,speed)
+      
+      // return name,icon,description,temp,humidity,speed;
+      // document.querySelector(".city").innerText = "Weather in " + name;
+      // document.querySelector(".icon").src = 
+      // "http://openweathermap.org/img/wn/" + icon + ".png";
+      // document.querySelector(".description").innerText = description;
+      // document.querySelector(".temp").innerText = (temp-273).toFixed(2) + "°C";
+      // document.querySelector(".humidity").innerText = "Humidity: " + humidity +"%";
+      // document.querySelector(".wind").innerText = "Wind speed: " + speed +"Km/h";
+      // document.querySelector(".weather").classList.remove("loading");
+      // document.body.style.backgroundImage = "url('https://source.unsplash.com/1600x900/?" + name + "')"
+    },
+
+    // search: function(){
+    //   this.fetchWeather(document.querySelector(".search-box").value);
+    // }
+  };
+  // document
+  // .querySelector(".search button")
+  // .addEventListener("click",function(){
+  //   weather.search();
+  // });
+  
+  // document
+  // .querySelector(".search-box")
+  // .addEventListener("keyup", function(event){
+  //   if(event.key == "Enter"){
+  //     weather.search();
+  //   }
+  
+  // });
+  
+  weather.fetchWeather("Pune");
+
     return ( 
       <div>
         <div id="weatherPrediction">
@@ -24,24 +98,29 @@ const PlaceSlider = () => {
   <div className="info-side">
     <div className="today-info-container">
       <div className="today-info">
+      <div className="precipitation">
+          <span className="title">PLACE</span><span className="value">{Placename}</span>
+          <div className="clear"></div>
+      </div>
+      <div className="precipitation">
+          <span className="title">DESCRIPTION</span><span className="value" style={{textTransform:"capitalize"}}>{descrep}</span>
+          <div className="clear"></div>
+      </div>
       <div className="date">
-          <span className="title">DATE</span><span className="value">18 Mar 2022</span>
+          <span className="title">DATE</span><span className="value" id="datetime">{dateTime}</span>
           <div className="clear"></div>
         </div>
         <div className="temp">
-          <span className="title">TEMPERATURE</span><span className="value">29°C</span>
+          <span className="title">TEMPERATURE</span><span className="value">{(temperature-273).toFixed(2) + " °C"}</span>
           <div className="clear"></div>
         </div>
-        <div className="precipitation">
-          <span className="title">PRECIPITATION</span><span className="value">0 %</span>
-          <div className="clear"></div>
-        </div>
+       
         <div className="humidity">
-          <span className="title">HUMIDITY</span><span className="value">34 %</span>
+          <span className="title">HUMIDITY</span><span className="value">{humidity + " %"}</span>
           <div className="clear"></div>
         </div>
         <div className="wind">
-          <span className="title">WIND</span><span className="value">0 km/h</span>
+          <span className="title">WIND</span><span className="value">{windspeed + " KM/Hr"}</span>
           <div className="clear"></div>
         </div>
       </div>
@@ -49,6 +128,7 @@ const PlaceSlider = () => {
     <div className="week-container">
       <ul className="week-list">
         <li className="active">
+          {/* <img src={icon} alt="" /> */}
           <i className="day-icon" data-feather="sun"></i><span className="day-name">Tue</span><span className="day-temp">29°C</span>
         </li>
         <li>
@@ -66,11 +146,13 @@ const PlaceSlider = () => {
         <div className="clear"></div>
       </ul>
     </div>
+   
     {/* <div className="location-container">
       <button className="location-button"><i data-feather="map-pin"></i><span>Change location</span></button>
     </div> */}
   </div>
 </div>
+
         </div>
         <div className="sliderForPlace">
         <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
@@ -81,13 +163,13 @@ const PlaceSlider = () => {
     </div>
     <div className="carousel-inner">
       <div className="carousel-item active">
-        <img src="https://www.holidify.com/images/cmsuploads/compressed/BangalorePalace16_20190904100428_20190904100439.jpg" alt="..." />
+        <img src={placeImg} alt="..." />
       </div>
       <div className="carousel-item">
-        <img src="https://www.holidify.com/images/compressed/attractions/attr_1552.jpg" alt="..." />
+        <img src={placeImg + "/1"} alt="..." />
       </div>
       <div className="carousel-item">
-        <img src="https://www.holidify.com/images/cmsuploads/compressed/BangalorePalace10_20190920110923.jpg" alt="..." />
+        <img src={placeImg + "/"} alt="..." />
       </div>
     </div>
     <i className="carousel-control-prev bi bi-caret-left" id="slideNext" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
