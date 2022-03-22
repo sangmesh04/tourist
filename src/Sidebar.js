@@ -2,6 +2,22 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const SideBar = () => {
+
+  function CopyUrlForPlace(placeId) {
+    /* Get the text field */
+    var copyText = document.getElementById("placeUrl"+placeId);
+  
+    /* Select the text field */
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); /* For mobile devices */
+  
+     /* Copy the text inside the text field */
+    navigator.clipboard.writeText(copyText.value);
+  
+    /* Alert the copied text */
+    // alert("Copied the text: " + copyText.value);
+  }
+
   var mainContent = document.getElementById("mainContent");
   var skeleton = document.getElementById("skeleton");
   function hideSkeleton(){
@@ -201,10 +217,9 @@ const SideBar = () => {
             <div className="project-box-header">
               <span>{place.time}</span>
               <div className="more-wrapper">
-                <button className="project-btn-more">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-share-fill" viewBox="0 0 16 16">
-  <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
-</svg>
+                <button type="button" className="project-btn-more" data-bs-toggle="modal" data-bs-target={"#"+"modal" + place.id}>
+   {/* className="btn btn-lg btn-info" > */}
+   <i className="bi bi-share-fill"></i>
                 </button>
           </div>
         </div>
@@ -232,7 +247,26 @@ const SideBar = () => {
           </div>
         </div>
       </div>
+      <div className="modal fade" id={"modal" + place.id} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div className="modal-dialog">
+    <div className="modal-content">
+      <div className="modal-header">
+        <h5 className="modal-title" id="exampleModalLabel">Share this place with your friends ;)</h5>
+        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div className="modal-body">
+        {place.placename} <br />
+        <div className="input-group mb-3">
+  <input type="text" className="form-control" id={"placeUrl"+place.id} defaultValue={place.placename} aria-label="Recipient's username" aria-describedby="button-addon2" /> 
+  <button className="btn btn-outline-dark" onClick={() => CopyUrlForPlace(place.id)} type="button" id="button-addon2">Copy</button>
+</div>
+      </div>
     </div>
+  </div>
+</div>
+
+    </div>
+    
       ))}
       </div>
       </div>
