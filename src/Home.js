@@ -20,7 +20,11 @@ import React, { useState } from 'react';
 // import axios from "axios";
 import { Link } from 'react-router-dom';
 
+import Map from "mapmyindia-react";
+
 const Home = () => {
+
+
   const [Location,setLocation] = useState('');
 
   function handleSubmit(e){
@@ -46,11 +50,11 @@ const HideNavbar = () =>{
     }
   }
 
-const [lat, setLat] = useState(null);
-const [lng, setLng] = useState(null);
+const [lat, setLat] = useState(18.51957);
+const [lng, setLng] = useState(73.85535);
 const [status, setStatus] = useState(null);
 
-const getLocation = () => {
+function getLocation () {
   if (!navigator.geolocation) {
     setStatus('Geolocation is not supported by your browser');
   } else {
@@ -64,6 +68,8 @@ const getLocation = () => {
     });
   }
 }
+
+window.onload = getLocation;
 
 const [company,AddCompany] = useState([
   {image:cli1,id:"img1"},
@@ -176,7 +182,22 @@ const [faqs,Addfaq] = useState([
 
         </div>
         <div className="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left" data-aos-delay="200">
-          <img src={hero} className="img-fluid animated" alt="" />
+          {/* <img src={hero} className="img-fluid animated" alt="" /> */}
+          <Map
+        markers={[
+          {
+            position: [lat, lng],
+            draggable: true,
+            title: "Marker title",
+            onClick: e => {
+              console.log("clicked ");
+            },
+            onDragend: e => {
+              console.log("dragged");
+            }
+          }
+        ]}
+      />
         </div>
       </div>
     </div>
