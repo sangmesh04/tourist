@@ -1,5 +1,6 @@
 import hero from './img/hero-img.png';
-import cli1 from './img/clients/gmaps.png';
+// import cli1 from './img/clients/gmaps.png';
+import cli1 from './img/clients/mapmyindia.png';
 import cli2 from './img/clients/uber.png';
 import cli3 from './img/clients/client-3.png';
 import cli4 from './img/clients/ola.png';
