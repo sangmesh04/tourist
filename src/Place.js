@@ -3,8 +3,15 @@ import { Link } from "react-router-dom";
 import PlaceSlider from "./PlaceSlider";
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import PlaceInfo from "./PlaceInfo";
+// import setCityName from "./PlaceSlider";
 
 const Place = () => {
+  function searchForCity(){
+    var cityname = document.getElementById("searchCity").value;
+    // setCityName(cityname);
+    console.log(cityname);
+  }
+
   function ThemeMode  () {
     var modeSwitch = document.querySelector('.mode-switch');
     // function changeMode() {                     
@@ -22,12 +29,13 @@ const Place = () => {
      <Link to="/"><p className="app-name">Portfolio</p>
       </Link>
       <div className="search-wrapper">
-        <input className="search-input" type="text" placeholder="Search" />
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="feather feather-search" viewBox="0 0 24 24">
+        <input className="search-input" type="text" id="searchCity" placeholder="Search" />
+        <div id="searchIcon" onClick={searchForCity}><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="feather feather-search" viewBox="0 0 24 24">
           <defs></defs>
           <circle cx="11" cy="11" r="8"></circle>
           <path d="M21 21l-4.35-4.35"></path>
         </svg>
+        </div>
       </div>
     </div>
     <div className="app-header-right">

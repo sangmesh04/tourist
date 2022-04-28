@@ -1181,3 +1181,7 @@ code {
 	  opacity: 1;
 	}
   }
+
+  #searchIcon:hover{
+	  cursor: pointer;
+  }

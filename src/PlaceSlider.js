@@ -5,6 +5,7 @@ const PlaceSlider = () => {
   var dt = new Date();
   var dateTime = (("0" + dt.getDate()).slice(-2)) + "." + (("0" + (dt.getMonth() + 1)).slice(-2)) + "." + (dt.getFullYear()) + " || " + (("0" + dt.getHours()).slice(-2)) + "." + (("0" + dt.getMinutes()).slice(-2));
   
+  // const [cityName, setCityName] = useState("");
   const [temperature, setTemperature] = useState("");
   const [Placename, setPlacename] = useState("");
   const [descrep, setDescription] = useState("");
@@ -70,7 +71,9 @@ const PlaceSlider = () => {
   //   }
   
   // });
-  
+  // if(cityName !== ""){
+  //   weather.fetchWeather(cityName);
+  // }
   weather.fetchWeather("Pune");
 
     return ( 
