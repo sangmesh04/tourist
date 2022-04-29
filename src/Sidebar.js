@@ -1,8 +1,26 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const SideBar = () => {
 
+  let history = useHistory();
+  const [Location,setLocation] = useState('');
+  function handleSubmit(e){
+    e.preventDefault();
+    const locationData = {Location, lat, lng};
+    
+    history.push("/result?location="+(Location)+"&lat="+(lat)+"&lng="+(lng));
+    console.log(locationData);
+  }
+
+  let queryParam = new URLSearchParams(window.location.search);
+
+  const loc = queryParam.get("location");
+  const lat = queryParam.get("lat");
+  const lng = queryParam.get("lng");
+
+  console.log(queryParam.get("location"));
   function CopyUrlForPlace(placeId) {
     /* Get the text field */
     var copyText = document.getElementById("placeUrl"+placeId);
@@ -69,8 +87,8 @@ const SideBar = () => {
      <Link to="/"><p className="app-name">Portfolio</p>
       </Link>
       <div className="search-wrapper">
-        <input className="search-input" type="text" placeholder="Search" />
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="feather feather-search" viewBox="0 0 24 24">
+        <input className="search-input" type="text" onChange={(e) => setLocation(e.target.value)} placeholder="Search" />
+        <svg xmlns="http://www.w3.org/2000/svg" id="searchIcon" onClick={handleSubmit} width="20" height="20" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="feather feather-search" viewBox="0 0 24 24">
           <defs></defs>
           <circle cx="11" cy="11" r="8"></circle>
           <path d="M21 21l-4.35-4.35"></path>
@@ -117,7 +135,10 @@ const SideBar = () => {
         {/* <p>Projects</p> */}
         <p className="time"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-geo-alt-fill" viewBox="0 0 16 16">
   <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
-</svg> Chikkatoguru Main Road, Pragathi Nagar, Chikkathoguru, Bengaluru, 560100, Karnataka, India</p>
+</svg> 
+{/* Chikkatoguru Main Road, Pragathi Nagar, Chikkathoguru, Bengaluru, 560100, Karnataka, India */}
+{" "+loc+" (Latitude: "+lat+", Longitude: "+lng+")"}
+</p>
       </div>
       <div className="projects-section-line">
         <div className="projects-status">

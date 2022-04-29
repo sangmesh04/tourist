@@ -22,16 +22,49 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import Map from "mapmyindia-react";
+import { useHistory } from 'react-router-dom';
+
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
 
 const Home = () => {
 
+  const {
+    transcript,
+    listening,
+    resetTranscript,
+    browserSupportsSpeechRecognition
+  } = useSpeechRecognition();
+
+  if (!browserSupportsSpeechRecognition) {
+    alert("Browser doesn't support speech recognition.");
+  }
+
+  
 
   const [Location,setLocation] = useState('');
+  let history = useHistory();
+  var loca;
 
+  function enAbleInput(d,h){
+    var input = document.getElementById("q"+d);
+    var input1 = document.getElementById("q"+h);
+    input.style.display = "block";
+    input1.style.display = "none";
+  }
   function handleSubmit(e){
     e.preventDefault();
     const locationData = {Location, lat, lng};
+    var loca = transcript;
+    setLocation(loca);
+    if(Location !==""){
+      loca = Location;
+    }
+    //console.log(loca);
+    history.push("/result?location="+(loca)+"&lat="+(lat)+"&lng="+(lng));
     console.log(locationData);
+  }
+  if(listening){
+    var charLoc= document.getElementById("q1").value;
   }
     const MobileToggle = () => {
       var mobileTogggle = document.getElementById("mobileTogl");
@@ -39,6 +72,13 @@ const Home = () => {
       navbar.classList.toggle('navbar-mobile');
       mobileTogggle.classList.toggle('bi-list');
       mobileTogggle.classList.toggle('bi-x');
+}
+
+function startRecong(){
+  var speech = SpeechRecognition.startListening;
+  if(speech){
+    enAbleInput(2,1);
+  }
 }
 
 const HideNavbar = () =>{
@@ -129,24 +169,6 @@ const [faqs,Addfaq] = useState([
           <li><a className="nav-link scrollto" onClick={HideNavbar} href="#services">Services</a></li>
           <li><a className="nav-link scrollto" onClick={HideNavbar} href="#portfolio">Portfolio</a></li>
           <li><a className="nav-link scrollto" onClick={HideNavbar} href="#team">Team</a></li>
-          {/* <li><a className="nav-link scrollto" onClick={HideNavbar} href="#pricing">Pricing</a></li> */}
-          {/* <li className="dropdown"><a href="#"><span>Drop Down</span> <i className="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li className="dropdown"><a href="#"><span>Deep Drop Down</span> <i className="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li> */}
           <li><a className="nav-link scrollto" onClick={HideNavbar} href="#contact">Contact</a></li>
           <li><a className="getstarted scrollto" onClick={HideNavbar} href="#about">Get Started</a></li>
         </ul>
@@ -166,18 +188,23 @@ const [faqs,Addfaq] = useState([
       <div className="row">
         <div className="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
           <h1 data-aos="fade-up">Grow your business with Fliegen</h1>
-          {/* <h1>Coordinates</h1>
-      <p>{status}</p>
-      {lat && <p>Latitude: {lat}</p>}
-      {lng && <p>Longitude: {lng}</p>} */}
           <h2 data-aos="fade-up" data-aos-delay="400">We are team of talented designers making websites with Bootstrap</h2>
-          <form onSubmit={handleSubmit}>
+          <form method='get' onSubmit={handleSubmit}>
           <div data-aos="fade-up" className='input-group' data-aos-delay="800">
-            <input type="text" id="autocomplete" onChange={(e) => setLocation(e.target.value)} className="btn-get-started scrollto" onClick={HideNavbar} />
+            <input type="search" style={{display:"none"}} id="q1" name="q1" onClick={() => enAbleInput(1,2)} value={loca = transcript} className="btn-get-started scrollto" />
+            <input type="search" id="q2" name="q2" onClick={() => enAbleInput(2,1)} onChange={(e) => setLocation(e.target.value)} value={charLoc} className="btn-get-started scrollto" />
+            <i className="bi bi-mic-fill" onClick={SpeechRecognition.startListening}></i>
             <i onClick={getLocation} className="bi bi-geo-alt-fill"></i>
           </div>
           <button type="submit" id="homeSearchBtn" className="btn btn-dark">Search</button>
           </form>
+          <div>
+      <p>Microphone: {listening ? 'on' : 'off'}</p>
+      {/* <button onClick={SpeechRecognition.startListening}>Start</button>
+      <button onClick={SpeechRecognition.stopListening}>Stop</button>
+      <button onClick={resetTranscript}>Reset</button> */}
+
+    </div>
         </div>
         <div id="details">
 
@@ -431,94 +458,6 @@ const [faqs,Addfaq] = useState([
     <span className="visually-hidden">Next</span>
   </button>
 </div>
-
-        {/* <div className="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-          <div className="swiper-wrapper">
-
-            <div className="swiper-slide">
-              <div className="testimonial-wrap">
-                <div className="testimonial-item">
-                  <img src={test1} className="testimonial-img" alt="" />
-                  <h3>Saul Goodman</h3>
-                  <h4>Ceo &amp; Founder</h4>
-                  <p>
-                    <i className="bx bxs-quote-alt-left quote-icon-left"></i>
-                    Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                    <i className="bx bxs-quote-alt-right quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div>
-         
-
-            <div className="swiper-slide">
-              <div className="testimonial-wrap">
-                <div className="testimonial-item">
-                  <img src={test2} className="testimonial-img" alt="" />
-                  <h3>Sara Wilsson</h3>
-                  <h4>Designer</h4>
-                  <p>
-                    <i className="bx bxs-quote-alt-left quote-icon-left"></i>
-                    Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                    <i className="bx bxs-quote-alt-right quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div>
-        
-
-            <div className="swiper-slide">
-              <div className="testimonial-wrap">
-                <div className="testimonial-item">
-                  <img src={test3} className="testimonial-img" alt="" />
-                  <h3>Jena Karlis</h3>
-                  <h4>Store Owner</h4>
-                  <p>
-                    <i className="bx bxs-quote-alt-left quote-icon-left"></i>
-                    Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                    <i className="bx bxs-quote-alt-right quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div>
-         
-
-            <div className="swiper-slide">
-              <div className="testimonial-wrap">
-                <div className="testimonial-item">
-                  <img src={test4} className="testimonial-img" alt="" />
-                  <h3>Matt Brandon</h3>
-                  <h4>Freelancer</h4>
-                  <p>
-                    <i className="bx bxs-quote-alt-left quote-icon-left"></i>
-                    Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                    <i className="bx bxs-quote-alt-right quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div>
-         
-
-            <div className="swiper-slide">
-              <div className="testimonial-wrap">
-                <div className="testimonial-item">
-                  <img src={test5} className="testimonial-img" alt="" />
-                  <h3>John Larson</h3>
-                  <h4>Entrepreneur</h4>
-                  <p>
-                    <i className="bx bxs-quote-alt-left quote-icon-left"></i>
-                    Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                    <i className="bx bxs-quote-alt-right quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div>
-    
-
-          </div>
-          <div className="swiper-pagination"></div>
-        </div> */}
-
       </div>
     </section>
     {/* <!-- End Testimonials Section --> */}

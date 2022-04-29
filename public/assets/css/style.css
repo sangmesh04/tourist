@@ -366,14 +366,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 #hero .row input{
   outline: none;
-  width: 80%;
+  width: 72%;
+  text-transform: capitalize;
 }
-#hero  .row .bi-geo-alt-fill{
+#hero  .row .bi-geo-alt-fill, #hero  .row .bi-mic-fill{
   font-size: 35px;
   color: var(--secondary-color);
   margin-left:7px ;
 }
-#hero  .row .bi-geo-alt-fill:hover{
+#hero  .row .bi-geo-alt-fill:hover,.bi-mic-fill:hover{
   cursor: pointer;
 }
 #hero .animated {
@@ -516,7 +517,7 @@ section {
 @media (max-width: 575px) {
   #main{
     position: relative;
-    margin-top: 72px !important;
+    margin-top: 92px !important;
   }
   .clients img {
     width: 30%;

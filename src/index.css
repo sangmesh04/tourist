@@ -1185,3 +1185,7 @@ code {
   #searchIcon:hover{
 	  cursor: pointer;
   }
+
+  .search-input{
+	  text-transform: capitalize;
+  }
