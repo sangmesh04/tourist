@@ -4,15 +4,33 @@ import PlaceSlider from "./PlaceSlider";
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import PlaceInfo from "./PlaceInfo";
 // import setCityName from "./PlaceSlider";
+import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const Place = () => {
-  function searchForCity(){
-    var cityname = document.getElementById("searchCity").value;
-    // setCityName(cityname);
-    console.log(cityname);
+
+
+
+  let queryParam = new URLSearchParams(window.location.search);
+  let history = useHistory();
+  function handleSubmit(){
+    //const locationData = {Location, lat, lng};
+    let Place = document.getElementById("searchCity").value;
+    history.push("/result?location="+Place);
+    //console.log(locationData);
   }
 
+  const placen = queryParam.get("placeName");
+  const cityn = queryParam.get("city");
+  // function searchForCity(){
+  //   var cityname = document.getElementById("searchCity").value;
+  //   setPlacen(cityname);
+  //   cityn = cityname;
+  //   //console.log(cityname);
+  // }
+
   function ThemeMode  () {
+
     var modeSwitch = document.querySelector('.mode-switch');
     // function changeMode() {                     
       document.documentElement.classList.toggle('dark');
@@ -30,7 +48,7 @@ const Place = () => {
       </Link>
       <div className="search-wrapper">
         <input className="search-input" type="text" id="searchCity" placeholder="Search" />
-        <div id="searchIcon" onClick={searchForCity}><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="feather feather-search" viewBox="0 0 24 24">
+        <div id="searchIcon" onClick={handleSubmit}><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="feather feather-search" viewBox="0 0 24 24">
           <defs></defs>
           <circle cx="11" cy="11" r="8"></circle>
           <path d="M21 21l-4.35-4.35"></path>
@@ -97,7 +115,7 @@ const Place = () => {
 
 <div className="projects-section">
       <div className="projects-section-header">
-        <p><i className="bi bi-caret-right-fill"></i> Bangalore Palace</p>
+        <p><i className="bi bi-caret-right-fill"></i>{placen}</p>
         <p className="time"><i className="bi bi-geo-alt-fill"></i> Chikkatoguru Main Road, Pragathi Nagar, Chikkathoguru, Bengaluru, 560100, Karnataka, India</p>
       </div>
 

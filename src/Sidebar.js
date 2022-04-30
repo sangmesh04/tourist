@@ -9,16 +9,20 @@ const SideBar = () => {
   function handleSubmit(e){
     e.preventDefault();
     const locationData = {Location, lat, lng};
-    
+    setLocation(document.getElementById("lSearch").value);
     history.push("/result?location="+(Location)+"&lat="+(lat)+"&lng="+(lng));
     console.log(locationData);
   }
-
+function renderToPlace(place,city){
+  history.push("/place?placeName="+place+"&city="+city);
+}
   let queryParam = new URLSearchParams(window.location.search);
 
   const loc = queryParam.get("location");
   const lat = queryParam.get("lat");
   const lng = queryParam.get("lng");
+
+
 
   console.log(queryParam.get("location"));
   function CopyUrlForPlace(placeId) {
@@ -44,6 +48,7 @@ const SideBar = () => {
     skeleton.style.display = "none";
   }
   const ThemeMode = () => {
+    setLocation(loc);
     var modeSwitch = document.querySelector('.mode-switch');
   
     modeSwitch.addEventListener('click', function () {                     
@@ -71,12 +76,12 @@ const SideBar = () => {
   }
 
   const [places,Addplace] = useState([
-    {time:"December 10, 2020",placename:"Web Designing",placediscrip:"Prototyping",cardBackgroundColor:"#fee4cb",ratingBarWidth:"60%",SubBackGroundColor:"#ff942e", Distance:"2 Km", id:"place1"},
-    {time:"December 10, 2020",placename:"Testing",placediscrip:"Prototyping",cardBackgroundColor:"#e9e7fd",ratingBarWidth:"50%",SubBackGroundColor:"#4f3ff0", Distance:"6 Km", id:"place2"},
-    {time:"December 10, 2020",placename:"Svg Animations",placediscrip:"Prototyping",cardBackgroundColor:"#cee4fb",ratingBarWidth:"80%",SubBackGroundColor:"#096c86", Distance:"2 Km", id:"place3"},
-    {time:"December 10, 2020",placename:"UI Development",placediscrip:"Prototyping",cardBackgroundColor:"#ffd3e2",ratingBarWidth:"20%",SubBackGroundColor:"#df3670", Distance:"1 Km", id:"place4"},
-    {time:"December 10, 2020",placename:"Data Analysis",placediscrip:"Prototyping",cardBackgroundColor:"#c8f7dc",ratingBarWidth:"60%",SubBackGroundColor:"#34c471", Distance:"2 Km", id:"place5"},
-    {time:"December 10, 2020",placename:"Web Designing 2.0",placediscrip:"Prototyping",cardBackgroundColor:"#d5deff",ratingBarWidth:"40%",SubBackGroundColor:"#4067f9", Distance:"4 Km", id:"place6"},
+    {time:"Pune",placename:"Shaniwar wada",placediscrip:"Historical Landmark",cardBackgroundColor:"#fee4cb",ratingBarWidth:"60%",SubBackGroundColor:"#ff942e", Distance:"2 Km", id:"place1"},
+    {time:"Mumbai",placename:"Gateway of India",placediscrip:"Historical Place",cardBackgroundColor:"#e9e7fd",ratingBarWidth:"50%",SubBackGroundColor:"#4f3ff0", Distance:"6 Km", id:"place2"},
+    {time:"Pune",placename:"Shreemant Dagdusheth Ganapati",placediscrip:"Temple",cardBackgroundColor:"#cee4fb",ratingBarWidth:"80%",SubBackGroundColor:"#096c86", Distance:"2 Km", id:"place3"},
+    {time:"Hyderabad",placename:"Chaar minaar",placediscrip:"Monument",cardBackgroundColor:"#ffd3e2",ratingBarWidth:"20%",SubBackGroundColor:"#df3670", Distance:"1 Km", id:"place4"},
+    {time:"Latur",placename:"Ganjgolai",placediscrip:"Shopping",cardBackgroundColor:"#c8f7dc",ratingBarWidth:"60%",SubBackGroundColor:"#34c471", Distance:"2 Km", id:"place5"},
+    {time:"Udgir",placename:"Udaygiri Fort",placediscrip:"Fort",cardBackgroundColor:"#d5deff",ratingBarWidth:"40%",SubBackGroundColor:"#4067f9", Distance:"4 Km", id:"place6"},
   ])
     return ( 
         <div>
@@ -87,7 +92,7 @@ const SideBar = () => {
      <Link to="/"><p className="app-name">Portfolio</p>
       </Link>
       <div className="search-wrapper">
-        <input className="search-input" type="text" onChange={(e) => setLocation(e.target.value)} placeholder="Search" />
+        <input className="search-input" type="text" id="lSearch" placeholder="Search" />
         <svg xmlns="http://www.w3.org/2000/svg" id="searchIcon" onClick={handleSubmit} width="20" height="20" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="feather feather-search" viewBox="0 0 24 24">
           <defs></defs>
           <circle cx="11" cy="11" r="8"></circle>
@@ -137,7 +142,7 @@ const SideBar = () => {
   <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
 </svg> 
 {/* Chikkatoguru Main Road, Pragathi Nagar, Chikkathoguru, Bengaluru, 560100, Karnataka, India */}
-{" "+loc+" (Latitude: "+lat+", Longitude: "+lng+")"}
+{" "+Location+" (Latitude: "+lat+", Longitude: "+lng+")"}
 </p>
       </div>
       <div className="projects-section-line">
@@ -175,7 +180,7 @@ const SideBar = () => {
         </div>
       </div>
       <div className="project-boxes jsGridView">
-      <div className="row row-cols-1 row-cols-md-3 g-4" id="skeleton">        
+      <div className="row row-cols-1 row-cols-md-3 g-4" id="skeleton" style={{display:"none"}}>        
         <div className="project-box-wrapper">
         <div className="card project-box col-md-3" id="skeletonPart" aria-hidden="true">
           {/* <!-- <img src="..." className="card-img-top" alt="..."> --> */}
@@ -262,6 +267,9 @@ const SideBar = () => {
                 <path d="M12 5v14M5 12h14" />
               </svg>
             </button>
+            <button className="add-participant" onClick={()=>renderToPlace(place.placename,place.time)} style={{color: place.SubBackGroundColor}}>
+            <i class="bi bi-eye"></i>
+            </button>
           </div>
           <div className="days-left" style={{color: place.SubBackGroundColor}}>
            {place.Distance} away
@@ -278,7 +286,7 @@ const SideBar = () => {
       <div className="modal-body">
         {place.placename} <br />
         <div className="input-group mb-3">
-  <input type="text" className="form-control" id={"placeUrl"+place.id} defaultValue={place.placename} aria-label="Recipient's username" aria-describedby="button-addon2" /> 
+  <input type="text" className="form-control" id={"placeUrl"+place.id} defaultValue={"https://tourist-place-recommendation.web.app/place?placeName="+place.placename+"&city="+place.time} aria-label="Recipient's username" aria-describedby="button-addon2" /> 
   <button className="btn btn-outline-dark" onClick={() => CopyUrlForPlace(place.id)} type="button" id="button-addon2">Copy</button>
 </div>
       </div>

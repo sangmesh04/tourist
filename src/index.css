@@ -290,6 +290,7 @@ code {
 }
  .projects-section-header .time {
 	 font-size: 20px;
+	 text-transform: capitalize;
 }
  .projects-status {
 	 display: flex;
@@ -1188,4 +1189,9 @@ code {
 
   .search-input{
 	  text-transform: capitalize;
+  }
+
+  .project-box:hover{
+	box-shadow: rgba(26, 17, 17, 0.1) 0px 4px 16px, rgba(26, 17, 17, 0.1) 0px 8px 24px, rgba(26, 17, 17, 0.1) 0px 16px 56px;
+	cursor: pointer;
   }
