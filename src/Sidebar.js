@@ -79,7 +79,7 @@ function renderToPlace(place,city){
     {time:"Pune",placename:"Shaniwar wada",placediscrip:"Historical Landmark",cardBackgroundColor:"#fee4cb",ratingBarWidth:"60%",SubBackGroundColor:"#ff942e", Distance:"2 Km", id:"place1"},
     {time:"Mumbai",placename:"Gateway of India",placediscrip:"Historical Place",cardBackgroundColor:"#e9e7fd",ratingBarWidth:"50%",SubBackGroundColor:"#4f3ff0", Distance:"6 Km", id:"place2"},
     {time:"Pune",placename:"Shreemant Dagdusheth Ganapati",placediscrip:"Temple",cardBackgroundColor:"#cee4fb",ratingBarWidth:"80%",SubBackGroundColor:"#096c86", Distance:"2 Km", id:"place3"},
-    {time:"Hyderabad",placename:"Chaar minaar",placediscrip:"Monument",cardBackgroundColor:"#ffd3e2",ratingBarWidth:"20%",SubBackGroundColor:"#df3670", Distance:"1 Km", id:"place4"},
+    {time:"Pune",placename:"Lonavala",placediscrip:"Hill Station",cardBackgroundColor:"#ffd3e2",ratingBarWidth:"20%",SubBackGroundColor:"#df3670", Distance:"1 Km", id:"place4"},
     {time:"Latur",placename:"Ganjgolai",placediscrip:"Shopping",cardBackgroundColor:"#c8f7dc",ratingBarWidth:"60%",SubBackGroundColor:"#34c471", Distance:"2 Km", id:"place5"},
     {time:"Udgir",placename:"Udaygiri Fort",placediscrip:"Fort",cardBackgroundColor:"#d5deff",ratingBarWidth:"40%",SubBackGroundColor:"#4067f9", Distance:"4 Km", id:"place6"},
   ])
@@ -89,7 +89,7 @@ function renderToPlace(place,city){
   <div className="app-header">
     <div className="app-header-left">
      <span className="app-icon"></span>
-     <Link to="/"><p className="app-name">Portfolio</p>
+     <Link to="/"><p className="app-name">Fleigen</p>
       </Link>
       <div className="search-wrapper">
         <input className="search-input" type="text" id="lSearch" placeholder="Search" />
@@ -119,7 +119,7 @@ function renderToPlace(place,city){
       </button> */}
       <button className="profile-btn">
         <img src="https://assets.codepen.io/3306515/IMG_2025.jpg" />
-        <span>Aybüke C.</span>
+        <span>Madhuri M</span>
       </button>
     </div>
     {/* <button className="messages-btn">

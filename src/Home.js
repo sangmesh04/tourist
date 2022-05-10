@@ -187,8 +187,8 @@ const [faqs,Addfaq] = useState([
     <div className="container">
       <div className="row">
         <div className="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-          <h1 data-aos="fade-up">Grow your business with Fliegen</h1>
-          <h2 data-aos="fade-up" data-aos-delay="400">We are team of talented designers making websites with Bootstrap</h2>
+          <h1 data-aos="fade-up">Get Tourist spot recommendations with Fleigen</h1>
+          <h2 data-aos="fade-up" data-aos-delay="400">Just Enter Your Location and get best tourist places near you!</h2>
           <form method='get' onSubmit={handleSubmit}>
           <div data-aos="fade-up" className='input-group' data-aos-delay="800">
             <input type="search" style={{display:"none"}} id="q1" name="q1" onClick={() => enAbleInput(1,2)} value={loca = transcript} className="btn-get-started scrollto" />
