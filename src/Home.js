@@ -129,18 +129,18 @@ const [services,Addservice] = useState([
 ])
 
 const [features,AddFeature] = useState([
-  {icon:"ri-calendar-todo-line",title:"Sed perspiciatis",id:"feat1"},
-  {icon:"ri-bar-chart-box-line",title:"Dolor Sitema",id:"feat2"},
-  {icon:"ri-store-line",title:"Lorem Ipsum",id:"feat3"},
-  {icon:"ri-paint-brush-line",title:"Magni Dolores",id:"feat4"},
-  {icon:"ri-database-2-line",title:"Nemo Enim",id:"feat5"},
-  {icon:"ri-gradienter-line",title:"Eiusmod Tempor",id:"feat6"},
-  {icon:"ri-file-list-3-line",title:"Midela Teren",id:"feat7"},
-  {icon:"ri-price-tag-2-line",title:"Pira Neve",id:"feat8"},
-  {icon:"ri-anchor-line",title:"Dirada Pack",id:"feat9"},
-  {icon:"ri-disc-line",title:"Moton Ideal",id:"feat10"},
-  {icon:"ri-base-station-line",title:"Verdo Park",id:"feat11"},
-  {icon:"ri-fingerprint-line",title:"Flavor Nivelanda",id:"feat12"},
+  {icon:"bi bi-search",title:"Easily searchable and accessible",id:"feat1"},
+  {icon:"bi bi-cloud-sun",title:"Shows weather forecast to make planning feasible",id:"feat2"},
+  {icon:"bi bi-check",title:"Recommends spots according to user interest",id:"feat3"},
+  {icon:"ri-paint-brush-line",title:"User friendly",id:"feat4"},
+  {icon:"bi bi-compass",title:"Helps guiding the traveller to reach that spot",id:"feat5"},
+  // {icon:"ri-gradienter-line",title:"Eiusmod Tempor",id:"feat6"},
+  // {icon:"ri-file-list-3-line",title:"Midela Teren",id:"feat7"},
+  // {icon:"ri-price-tag-2-line",title:"Pira Neve",id:"feat8"},
+  // {icon:"ri-anchor-line",title:"Dirada Pack",id:"feat9"},
+  // {icon:"ri-disc-line",title:"Moton Ideal",id:"feat10"},
+  // {icon:"ri-base-station-line",title:"Verdo Park",id:"feat11"},
+  // {icon:"ri-fingerprint-line",title:"Flavor Nivelanda",id:"feat12"},
 ])
 
 const [faqs,Addfaq] = useState([
@@ -165,12 +165,12 @@ const [faqs,Addfaq] = useState([
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
           <li><a className="nav-link scrollto" onClick={HideNavbar} href="#hero">Home</a></li>
-          <li><a className="nav-link scrollto" onClick={HideNavbar} href="#about">About</a></li>
-          <li><a className="nav-link scrollto" onClick={HideNavbar} href="#services">Services</a></li>
-          <li><a className="nav-link scrollto" onClick={HideNavbar} href="#portfolio">Portfolio</a></li>
+          {/* <li><a className="nav-link scrollto" onClick={HideNavbar} href="#about">About</a></li> */}
+          <li><a className="nav-link scrollto" onClick={HideNavbar} href="#features">Features</a></li>
+          {/* <li><a className="nav-link scrollto" onClick={HideNavbar} href="#portfolio">Portfolio</a></li> */}
           <li><a className="nav-link scrollto" onClick={HideNavbar} href="#team">Team</a></li>
           <li><a className="nav-link scrollto" onClick={HideNavbar} href="#contact">Contact</a></li>
-          <li><a className="getstarted scrollto" onClick={HideNavbar} href="#about">Get Started</a></li>
+          <li><a className="getstarted scrollto" onClick={HideNavbar} href="#hero">Get Started</a></li>
         </ul>
         </div>
         <i className="bi bi-list navbar-toggler mobile-nav-toggle" id='mobileTogl' onClick={MobileToggle} type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"></i>
@@ -254,13 +254,13 @@ const [faqs,Addfaq] = useState([
     {/* <!-- End Clients Section --> */}
 
     {/* <!-- ======= About Us Section ======= --> */}
-    <section id="about" className="about">
+    {/* <section id="about" className="about">
       <div className="container">
 
         <div className="section-title" data-aos="fade-up">
           <h2>About Us</h2>
-        </div>
-
+        </div> */}
+{/* 
         <div className="row content">
           <div className="col-lg-6" data-aos="fade-up" data-aos-delay="150">
             <p>
@@ -281,10 +281,10 @@ const [faqs,Addfaq] = useState([
             </p>
             <a href="#" className="btn-learn-more">Learn More</a>
           </div>
-        </div>
+        </div> */}
 
-      </div>
-    </section>
+      {/* </div>
+    </section> */}
     {/* <!-- End About Us Section --> */}
 
     {/* <!-- ======= Counts Section ======= --> */}
@@ -303,15 +303,15 @@ const [faqs,Addfaq] = useState([
                   <div className="count-box">
                     <i className="bi bi-emoji-smile"></i>
                     <span data-purecounter-start="0" data-purecounter-end="65" data-purecounter-duration="1" className="purecounter"></span>
-                    <p><strong>Happy Clients</strong> consequuntur voluptas nostrum aliquid ipsam architecto ut.</p>
+                    <p><strong>Happy Tourists</strong> Fulfils need of touristers while they travel</p>
                   </div>
                 </div>
 
                 <div className="col-md-6 d-md-flex align-items-md-stretch">
                   <div className="count-box">
-                    <i className="bi bi-journal-richtext"></i>
+                  <i class="bi bi-cursor"></i>
                     <span data-purecounter-start="0" data-purecounter-end="85" data-purecounter-duration="1" className="purecounter"></span>
-                    <p><strong>Projects</strong> adipisci atque cum quia aspernatur totam laudantium et quia dere tan</p>
+                    <p><strong>Easy navigation</strong> Simple to take information about any desired place</p>
                   </div>
                 </div>
 
@@ -319,15 +319,15 @@ const [faqs,Addfaq] = useState([
                   <div className="count-box">
                     <i className="bi bi-clock"></i>
                     <span data-purecounter-start="0" data-purecounter-end="18" data-purecounter-duration="1" className="purecounter"></span>
-                    <p><strong>Years of experience</strong> aut commodi quaerat modi aliquam nam ducimus aut voluptate non vel</p>
+                    <p><strong>Time saving</strong> No unnecessary confusion, quick solution</p>
                   </div>
                 </div>
 
                 <div className="col-md-6 d-md-flex align-items-md-stretch">
                   <div className="count-box">
-                    <i className="bi bi-award"></i>
+                  <i className="bi bi-graph-up-arrow"></i>
                     <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" className="purecounter"></span>
-                    <p><strong>Awards</strong> rerum asperiores dolor alias quo reprehenderit eum et nemo pad der</p>
+                    <p><strong>Economy</strong> Helps to improve GDP of India by promoting tourism</p>
                   </div>
                 </div>
               </div>
@@ -341,7 +341,7 @@ const [faqs,Addfaq] = useState([
     {/* <!-- End Counts Section --> */}
 
     {/* <!-- ======= Services Section ======= --> */}
-    <section id="services" className="services">
+    {/* <section id="services" className="services">
       <div className="container">
 
         <div className="section-title" data-aos="fade-up">
@@ -363,7 +363,7 @@ const [faqs,Addfaq] = useState([
         </div>
 
       </div>
-    </section>
+    </section> */}
     {/* <!-- End Services Section --> */}
     {/* <!-- ======= Features Section ======= --> */}
     <section id="features" className="features">
@@ -390,7 +390,7 @@ const [faqs,Addfaq] = useState([
     {/* <!-- End Features Section --> */}
 
     {/* <!-- ======= Testimonials Section ======= --> */}
-    <section id="testimonials" className="testimonials section-bg">
+    {/* <section id="testimonials" className="testimonials section-bg">
       <div className="container">
 
         <div className="section-title" data-aos="fade-up">
@@ -459,7 +459,7 @@ const [faqs,Addfaq] = useState([
   </button>
 </div>
       </div>
-    </section>
+    </section> */}
     {/* <!-- End Testimonials Section --> */}
 
     {/* <!-- ======= Team Section ======= --> */}
@@ -552,7 +552,7 @@ const [faqs,Addfaq] = useState([
     {/* <!-- End Team Section --> */}
 
     {/* <!-- ======= F.A.Q Section ======= --> */}
-    <section id="faq" className="faq">
+    {/* <section id="faq" className="faq">
       <div className="container">
 
         <div className="section-title" data-aos="fade-up">
@@ -575,8 +575,8 @@ const [faqs,Addfaq] = useState([
           
         {/* <!-- End F.A.Q Item--> */}
 
-      </div>
-    </section>
+      {/* </div>
+    </section> */} 
     {/* <!-- End F.A.Q Section --> */}
 
     {/* <!-- ======= Contact Section ======= --> */}
@@ -592,7 +592,7 @@ const [faqs,Addfaq] = useState([
           <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div className="contact-about">
               <h3>Fliegen</h3>
-              <p>Cras fermentum odio eu feugiat. Justo eget magna fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>
+              <p>Travelling and roaming around is in the top of bucketlist of most of the people in the world. But when it comes in real, people are not able to decide the best spots or places to visit. This was the main inspiration of this project as we wanted to help people to get the list of best places in one tap and help them plan their tour efficiently.</p>
               <div className="social-links">
                 <a href="#" className="twitter"><i className="bi bi-twitter"></i></a>
                 <a href="#" className="facebook"><i className="bi bi-facebook"></i></a>
@@ -606,17 +606,17 @@ const [faqs,Addfaq] = useState([
             <div className="info">
               <div>
                 <i className="ri-map-pin-line"></i>
-                <p>A108 Adam Street<br />New York, NY 535022</p>
+                <p>Computer Department PICT<br />Pune, MH 411046</p>
               </div>
 
               <div>
                 <i className="ri-mail-send-line"></i>
-                <p>info@example.com</p>
+                <p>fliegen.enquiry@gmail.com</p>
               </div>
 
               <div>
                 <i className="ri-phone-line"></i>
-                <p>+1 5589 55488 55s</p>
+                <p>+91 95809 55488</p>
               </div>
 
             </div>
