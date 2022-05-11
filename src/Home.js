@@ -12,10 +12,10 @@ import test2 from './img/testimonials/testimonials-2.jpg';
 import test3 from './img/testimonials/testimonials-3.jpg';
 import test4 from './img/testimonials/testimonials-4.jpg';
 import test5 from './img/testimonials/testimonials-5.jpg';
-import team1 from './img/team/team-1.jpg';
-import team2 from './img/team/team-2.jpg';
-import team3 from './img/team/team-3.jpg';
-import team4 from './img/team/team-4.jpg';
+import team1 from './img/team/sangmesh.jpg';
+import team2 from './img/team/madhur.jpg';
+import team3 from './img/team/default.jpg';
+import team4 from './img/team/default.jpg';
 
 import React, { useState } from 'react';
 // import axios from "axios";
@@ -309,7 +309,7 @@ const [faqs,Addfaq] = useState([
 
                 <div className="col-md-6 d-md-flex align-items-md-stretch">
                   <div className="count-box">
-                  <i class="bi bi-cursor"></i>
+                  <i className="bi bi-cursor"></i>
                     <span data-purecounter-start="0" data-purecounter-end="85" data-purecounter-duration="1" className="purecounter"></span>
                     <p><strong>Easy navigation</strong> Simple to take information about any desired place</p>
                   </div>
@@ -468,7 +468,7 @@ const [faqs,Addfaq] = useState([
 
         <div className="section-title" data-aos="fade-up">
           <h2>Team</h2>
-          <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem</p>
+          <p>Our team work is the secret behind our success!</p>
         </div>
 
         <div className="row">
@@ -485,8 +485,8 @@ const [faqs,Addfaq] = useState([
                 </div>
               </div>
               <div className="member-info">
-                <h4>Walter White</h4>
-                <span>Chief Executive Officer</span>
+                <h4>Sangmeshwar Mahajan</h4>
+                <span>Frontend + APIs</span>
               </div>
             </div>
           </div>
@@ -503,8 +503,8 @@ const [faqs,Addfaq] = useState([
                 </div>
               </div>
               <div className="member-info">
-                <h4>Sarah Jhonson</h4>
-                <span>Product Manager</span>
+                <h4>Madhur Mundada</h4>
+                <span>Frontend + Synopsis</span>
               </div>
             </div>
           </div>
@@ -521,8 +521,8 @@ const [faqs,Addfaq] = useState([
                 </div>
               </div>
               <div className="member-info">
-                <h4>William Anderson</h4>
-                <span>CTO</span>
+                <h4>Satyajeet More</h4>
+                <span>Frontend + Report</span>
               </div>
             </div>
           </div>
@@ -539,8 +539,8 @@ const [faqs,Addfaq] = useState([
                 </div>
               </div>
               <div className="member-info">
-                <h4>Amanda Jepson</h4>
-                <span>Accountant</span>
+                <h4>Mihir Parte</h4>
+                <span>Frontend + Report</span>
               </div>
             </div>
           </div>
